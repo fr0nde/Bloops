@@ -1,47 +1,44 @@
 ﻿using Dapper;
-using Microsoft.Extensions.Configuration;
 using System.Data.Common;
 using System.Data.SQLite;
 
 namespace Bloops.Api.Business
 {
-    internal class DbSchemaUpdater
+    internal static class DbSchemaUpdater
     {
-        private const int Version = 1;
+        private static readonly int Version = 1;
 
-        private string ConnectionString { get; }
+        private static DbConnection Connection { get; set; }
 
-        internal DbSchemaUpdater(IConfiguration configuration)
+        internal static void Execute(string connectionString)
         {
-            ConnectionString = configuration.GetConnectionString("Database");
+            Connection = new SQLiteConnection(connectionString);
+            Connection.Open();
+
+            int schemaVersion = GetSchemaVersion();
+            if (schemaVersion >= Version)
+            {
+                return;
+            }
+
+            if (schemaVersion < 1)
+            {
+
+            }
+
+            UpdateSchemaVersion();
+
+            Connection.Dispose();
         }
 
-        internal void Execute()
+        private static int GetSchemaVersion()
         {
-            using (DbConnection connection = new SQLiteConnection(ConnectionString))
-            {
-                connection.Open();
+            return Connection.ExecuteScalar<int>("PRAGMA schema_version");
+        }
 
-                int dbVersion = connection.ExecuteScalar<int>("PRAGMA schema_version");
-                if (dbVersion >= Version)
-                {
-                    return;
-                }
-
-                if (dbVersion < 1)
-                {
-                    connection.Execute(@"CREATE TABLE User (
-                        ID INTEGER IDENTITY PRIMARY KEY AUTOINCREMENT,
-                        SocialID VARCHAR(100) UNIQUE NOT NULL,
-                        Name VARCHAR(100) NOT NULL,
-                        LastLevelPlayed INTEGER NOT NULL,
-                        CreationDate DATETIME NOT NULL,
-                        ModificationDate DATETIME NOT NULL
-                    )");
-                }
-
-                connection.Execute($"PRAGMA schema_version = {Version}");
-            }
+        private static void UpdateSchemaVersion()
+        {
+            Connection.Execute($"PRAGMA schema_version = {Version}");
         }
     }
 }

@@ -1,26 +1,15 @@
-﻿using Bloops.Shared.Entities;
-using System;
+﻿using System;
+using Bloops.Api.Business.Entities;
+using Bloops.Shared.Entities;
 
-namespace Bloops.Api.Business.Entities
+namespace Bloops.Business.Entities
 {
-    /// <summary>
-    /// Utilisateur.
-    /// </summary>
     public class DbUser : User, IDbEntity
     {
-        /// <summary>
-        /// Identifiant.
-        /// </summary>
-        public int ID { get; }
+        public int Id { get; set; }
 
-        /// <summary>
-        /// Date de création.
-        /// </summary>
-        public DateTime CreationDate { get; }
+        public DateTime CreationDate { get; set; }
 
-        /// <summary>
-        /// Date de modification.
-        /// </summary>
-        public DateTime ModificationDate { get; }
+        public DateTime ModificationDate { get; set; }
     }
 }

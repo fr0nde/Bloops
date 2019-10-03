@@ -4,10 +4,10 @@ namespace Bloops.Api.Business.Entities
 {
     internal interface IDbEntity
     {
-        int ID { get; }
+        int Id { get; set; }
 
-        DateTime CreationDate { get; }
+        DateTime CreationDate { get; set; }
 
-        DateTime ModificationDate { get; }
+        DateTime ModificationDate { get; set; }
     }
 }

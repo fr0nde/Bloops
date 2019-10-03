@@ -1,6 +1,12 @@
-﻿namespace Bloops.Api.Business.Services
+﻿using Bloops.Business.Entities;
+using System.Threading.Tasks;
+
+namespace Bloops.Api.Business.Services
 {
-    internal interface IUserService
+    public interface IUserService
     {
+        int GetCurrentUserId();
+
+        Task<DbUser> GetCurrentUserAsync();
     }
 }
