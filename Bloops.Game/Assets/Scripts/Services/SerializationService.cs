@@ -18,9 +18,11 @@ public static class BinarySerializationService
     public static void ToBinaryFile<T>(string filename, T obj)
     {
         string filePath = GetFilePath(filename);
-        using FileStream file = File.Open(filePath, FileMode.OpenOrCreate);
-        BinaryFormatter bf = new BinaryFormatter();
-        bf.Serialize(file, obj);
+        using (FileStream file = File.Open(filePath, FileMode.OpenOrCreate))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(file, obj);
+        }
     }
 
     public static T? FromBinaryFile<T>(string filename) where T : struct
@@ -31,9 +33,11 @@ public static class BinarySerializationService
             return null;
         }
 
-        using FileStream file = File.Open(filePath, FileMode.Open);
-        BinaryFormatter bf = new BinaryFormatter();
-        return (T)bf.Deserialize(file);
+        using (FileStream file = File.Open(filePath, FileMode.Open))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            return (T)bf.Deserialize(file);
+        }
     }
 
     #endregion
