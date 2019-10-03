@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Services
+namespace Bloops.Game.Assets.Scripts.Services
 {
     public static class DataService
     {

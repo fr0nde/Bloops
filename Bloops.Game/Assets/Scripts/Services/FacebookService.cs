@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Services
+namespace Bloops.Game.Assets.Scripts.Services
 {
     public static class FacebookService
     {

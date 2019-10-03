@@ -1,7 +1,7 @@
 ﻿using Bloops.Shared.Responses;
 using System;
 
-namespace Assets.Scripts.Api
+namespace Bloops.Game.Assets.Scripts.Api
 {
     public class ApiException : Exception
     {

@@ -1,10 +1,10 @@
 ﻿using System.IO;
 using System.Net;
 using System.Threading.Tasks;
-using Assets.Scripts.Services;
+using Bloops.Game.Assets.Scripts.Services;
 using Bloops.Shared.Responses;
 
-namespace Assets.Scripts.Api
+namespace Bloops.Game.Assets.Scripts.Api
 {
     public static class ApiClient
     {
