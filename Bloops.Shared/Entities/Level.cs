@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Bloops.Shared.Entities
@@ -6,27 +6,13 @@ namespace Bloops.Shared.Entities
     /// <summary>
     /// Niveau.
     /// </summary>
+    [Serializable]
     public class Level
     {
         /// <summary>
-        /// Sérialisation d'un niveau.
+        /// Identifiant.
         /// </summary>
-        /// <param name="level">Niveau.</param>
-        /// <returns>JSON.</returns>
-        public static string Serialize(Level level)
-        {
-            return JsonConvert.SerializeObject(level);
-        }
-
-        /// <summary>
-        /// Désérialisation d'un niveau.
-        /// </summary>
-        /// <param name="json">JSON.</param>
-        /// <returns>Niveau.</returns>
-        public static Level Deserialize(string json)
-        {
-            return JsonConvert.DeserializeObject<Level>(json);
-        }
+        public int Id { get; set; }
 
         /// <summary>
         /// Position de départ.

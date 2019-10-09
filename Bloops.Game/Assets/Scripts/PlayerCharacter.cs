@@ -15,7 +15,7 @@ public class PlayerCharacter : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void SetPosition(int x, int y)
+    public async void SetPosition(int x, int y)
     {
         Vector2 movement = new Vector2(x, y);
         rb2d.position = movement;

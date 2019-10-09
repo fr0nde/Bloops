@@ -1,29 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Bloops.Shared.Entities
 {
-    public class User
+    [Serializable]
+    public class User 
     {
         /// <summary>
-        /// Identifiant Social API.
+        /// Identifiant Social.
         /// </summary>
-        public int SocialID { get; }
+        public string SocialId { get; set; }
 
         /// <summary>
         /// Nom.
         /// </summary>
-        public string Name { get; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Date de dernière connection.
+        /// Niveaux.
         /// </summary>
-        public DateTime LastConnectionDate { get; }
-
-        /// <summary>
-        /// Numéro du dernier niveau joué.
-        /// </summary>
-        public int LastLevelPlayed { get; }
+        public List<UserLevel> Levels { get; set; }
     }
 }

@@ -1,30 +1,32 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public static class ApplicationService
+namespace Bloops.Game.Assets.Scripts.Services
 {
-    public static bool Internet 
-    { 
-        get
-        {
-            return Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork ||
-                Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
-        } 
-    }
-
-    public static string DataPath
+    public static class ApplicationService
     {
-        get
+        public static bool Internet
         {
-            return Application.persistentDataPath;
+            get
+            {
+                return Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork ||
+                    Application.internetReachability == NetworkReachability.ReachableViaLocalAreaNetwork;
+            }
         }
-    }
 
-    public static string CachePath
-    {
-        get
+        public static string DataPath
         {
-            return Application.temporaryCachePath;
+            get
+            {
+                return Application.persistentDataPath;
+            }
+        }
+
+        public static string CachePath
+        {
+            get
+            {
+                return Application.temporaryCachePath;
+            }
         }
     }
 }

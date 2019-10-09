@@ -1,43 +1,22 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 
 namespace Bloops.Shared.Entities
 {
     /// <summary>
     /// Obstacle.
     /// </summary>
+    [Serializable]
     public class Obstacle
     {
         /// <summary>
-        /// Identifiant de l'objet.
+        /// Identifiant.
         /// </summary>
-        public int ObjectId
-        {
-            get { return _objectId; }
-            set
-            {
-                _objectId = value;
-                _object = null;
-            }
-        }
-        private int _objectId;
+        public int Id { get; set; }
 
         /// <summary>
-        /// Objet.
+        /// Type de l'obstacle.
         /// </summary>
-        [JsonIgnore]
-        public Object Object
-        {
-            get
-            {
-                if (_object == null)
-                {
-                    _object = ObjectRepository.Instance.Get(ObjectId);
-                }
-                return _object;
-            }
-        }
-        private Object _object;
+        public ObstacleType Type { get; set; }
 
         /// <summary>
         /// Position.
