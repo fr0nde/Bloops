@@ -44,7 +44,6 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
     //------------------------------------------------------------------------
     private void SetPagePositions()
     {
-        Debug.Log($"SetPagePositions");
 
         int width = 0;
         int containerWidth = 0;
@@ -56,8 +55,7 @@ public class ScrollSnapRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler,
 
         // total width
         containerWidth = width * (_pageCount -1);
-
-        Debug.Log($"containerWidth :{containerWidth}");
+        
         // set width of container
         Vector2 newSize = new Vector2(containerWidth, containerHeight);
         _container.sizeDelta = newSize;
