@@ -20,5 +20,15 @@ namespace Bloops.Shared.Entities
         /// Niveaux.
         /// </summary>
         public List<UserLevel> Levels { get; set; }
+
+        /// <summary>
+        /// Boulas.
+        /// </summary>
+        public int Boulas { get; set; }
+
+        /// <summary>
+        /// Equipement.
+        /// </summary>
+        public List<Item> Items { get; set; }
     }
 }

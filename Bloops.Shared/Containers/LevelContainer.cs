@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
 using Bloops.Shared.Entities;
 
-namespace Bloops.Shared.Repository
+namespace Bloops.Shared.Containers
 {
-    public static class LevelContainer
+    public class LevelContainer : Container<Level>
     {
-        private static Dictionary<int, Level> LevelDictionary;
-
-        public static void Initialize()
+        protected override void Initialize()
         {
-            LevelDictionary = new Dictionary<int, Level>() {
+            Dictionary = new Dictionary<int, Level>() {
                 // Level du monde 1
                 {1, new Level(1,1,0,0,0, new List<Obstacle>() {})},
                 {2, new Level(2,1,0,0,0, new List<Obstacle>() {})},
@@ -34,11 +31,6 @@ namespace Bloops.Shared.Repository
                 {19, new Level(19,2,0,0,0, new List<Obstacle>() {})},
                 {20, new Level(20,2,0,0,0, new List<Obstacle>() {})}
             };
-        }
-
-        public static Level GetLevelById(int id)
-        {
-            return LevelDictionary[id];
         }
     }
 }
