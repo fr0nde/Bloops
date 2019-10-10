@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Bloops.Shared.Entities;
+using Bloops.Shared.Repository;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,13 +17,13 @@ public class Character
     }
 }
 
-public class Level
+public class LevelInstance
 {
     public string MapName { get; set; }
     public int MapLevel { get; set; }
     public List<string> Instructions { get; set; }
 
-    public Level(string mapName, int mapLevel, List<string> instructions)
+    public LevelInstance(string mapName, int mapLevel, List<string> instructions)
     {
         MapName = mapName;
         MapLevel = mapLevel;
@@ -42,22 +43,30 @@ public class GameInfo : MonoBehaviour
         };
     public RawImage skinImage = null;
     private int skinIndex = 0;
+    private uint gameLevel;
 
     void Start()
     {
-        List<string> instruction = new List<string>() { "Gravité activé", "Moins de 3 rebonds", "Moins de 10 secondes" };
-        Level level = new Level("Fôret Magique", 2, instruction);
+        LevelContainer.Initialize();
+        WorldContainer.Initialize();
 
-        initMapInfo(level);
+        Level level = LevelContainer.GetLevelById(GameSceneInfo.level);
+        World world = WorldContainer.GetWorldById(level.WorldId);
+
+        //List<string> instruction = new List<string>() { "Gravité activé", "Moins de 3 rebonds", "Moins de 10 secondes" };
+        //LevelInstance levelInstance = new LevelInstance("Fôret Magique", GameSceneInfo.level, instruction);
+
+        initMapInfo(level, world);
         loadSkin(skins[0]);
     }
 
-    private void initMapInfo(Level level)
+    private void initMapInfo(Level level, World world)
     {
         // Initialise le titre du niveau
-        titleText.text = $"{level.MapName} - {level.MapLevel}";
+        titleText.text = $"{world.Title} - {level.Id}";
         // Initialise la description du niveau
-        infoText.text = string.Join("\n", level.Instructions);
+        List<string> instructions = new List<string>() { "toto", "todod" };
+        infoText.text = string.Join("\n", instructions);
     }
     private void loadSkin(Character character)
     {

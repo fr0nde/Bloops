@@ -24,8 +24,8 @@ public class Gamelevel : MonoBehaviour
 
     public void runLevel(Text gameLevel)
     {
-        GameSceneInfo.level = Convert.ToUInt32(gameLevel.text);
-        SceneManager.LoadScene("gameScene");
+        GameSceneInfo.level = Convert.ToInt32(gameLevel.text);
+        SceneManager.LoadScene("GameInstanceInfo");
     }
 
     // Update is called once per frame

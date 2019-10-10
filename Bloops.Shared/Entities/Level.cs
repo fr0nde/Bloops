@@ -15,6 +15,11 @@ namespace Bloops.Shared.Entities
         public int Id { get; set; }
 
         /// <summary>
+        /// Identifiant du monde.
+        /// </summary>
+        public int WorldId { get; set; }
+
+        /// <summary>
         /// Position de départ.
         /// </summary>
         public int StartPosition { get; set; }
@@ -33,5 +38,15 @@ namespace Bloops.Shared.Entities
         /// Liste d'obstacles.
         /// </summary>
         public List<Obstacle> Obstacles { get; set; }
+
+        public Level(int id, int worldId, int startPosition, int endPosition, int gravity, List<Obstacle> obstacles)
+        {
+            Id = id;
+            WorldId = worldId;
+            StartPosition = startPosition;
+            EndPosition = endPosition;
+            Gravity = gravity;
+            Obstacles = obstacles;
+        }
     }
 }
