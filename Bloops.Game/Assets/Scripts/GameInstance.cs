@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameInstance : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class GameInstance : MonoBehaviour
         }
         GameObject btnLaunch = GameObject.Find("BtnLaunch");
         btnLaunch.SetActive(false);
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private BoxCollider2D addWall(float x, float y)
