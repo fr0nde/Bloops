@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 953287097603846672}
   - component: {fileID: 953287097603846687}
-  - component: {fileID: 953287097603846686}
   - component: {fileID: 953287097603846685}
+  - component: {fileID: 9090994073950000283}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -82,7 +82,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &953287097603846686
+--- !u!114 &953287097603846685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953287097603846684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopSpriteCollide: {fileID: 21300000, guid: e9954dc7d18f65f43b47a60f51f91a91, type: 3}
+  BotSpriteCollide: {fileID: 21300000, guid: 3570a011649ab7c428a05550555aa2d3, type: 3}
+  LeftSpriteCollide: {fileID: 21300000, guid: 42b6068cb7214a746bac7bc02b89ceea, type: 3}
+  RightSpriteCollide: {fileID: 21300000, guid: 3e121528e97eb9f49b87afbbf00f2f1e, type: 3}
+--- !u!61 &9090994073950000283
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +108,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -108,15 +124,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &953287097603846685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953287097603846684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
