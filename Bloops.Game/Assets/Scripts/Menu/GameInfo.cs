@@ -99,12 +99,12 @@ public class GameInfo : MonoBehaviour
 
     public void loadPreviousScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("AventureMenu");
     }
 
 
     public void loadGameInstance()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("InstanceGame");
     }
 }
