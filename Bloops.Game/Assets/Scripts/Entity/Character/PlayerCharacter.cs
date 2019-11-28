@@ -10,14 +10,12 @@ public class PlayerCharacter : MonoBehaviour
     private Vector2 posFin;
     private Vector2 posDeb;
     private Camera cam;
-    private Animator anim;
 
     // Use this for initialization
     void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         rb2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         cam = Camera.main;
     }
 
@@ -33,7 +31,6 @@ public class PlayerCharacter : MonoBehaviour
             {
                 Vector3 positionRelative = new Vector3(touch.position.x, touch.position.y, 0);
                 posDeb = cam.ScreenToWorldPoint(positionRelative);
-                //anim.Play("launch_right", 0, 0);
             }
 
             if (touch.phase == TouchPhase.Ended)
@@ -53,14 +50,13 @@ public class PlayerCharacter : MonoBehaviour
                 Vector2 movement = new Vector2(longueurX, longueurY);
                 rb2d.AddForce(new Vector2(-longueurX, -longueurY) * speed, ForceMode2D.Impulse);
                 launch = true;
-                anim.Play("idle", 0, 0);
             }
 
-            //if (!launch)
-            //{
-            //    Vector2 positionRelative = new Vector2(touch.position.x, touch.position.y);
-            //    rb2d.position = cam.ScreenToWorldPoint(positionRelative);
-            //}
+            if (!launch)
+            {
+                Vector2 positionRelative = new Vector2(touch.position.x, touch.position.y);
+                rb2d.position = cam.ScreenToWorldPoint(positionRelative);
+            }
         }
     }
 
