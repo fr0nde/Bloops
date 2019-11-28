@@ -8,6 +8,7 @@ public class GameInstance : MonoBehaviour
     public BoxCollider2D wallPrefab;
     public Rigidbody2D characterPrefab;
     public SpriteRenderer backgroundPrefab;
+    public BoxCollider2D doorPrefab;
 
     //void Awake()
     //{
@@ -32,8 +33,8 @@ public class GameInstance : MonoBehaviour
         Rigidbody2D characterInstance;
         characterInstance = Instantiate(characterPrefab) as Rigidbody2D;
 
-        // instantiate btw 1 and 4 walls 
-        int nbWall = Random.Range(2, 5);
+        // instantiate btw 1 and 5 walls 
+        int nbWall = Random.Range(2, 6);
         List<BoxCollider2D> wallList = new List<BoxCollider2D>();
         BoxCollider2D wallInstance;
         for (int i = 1; i <= nbWall; i++)
@@ -41,6 +42,13 @@ public class GameInstance : MonoBehaviour
             wallInstance = addWall(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
             wallList.Add(wallInstance);
         }
+
+        //instantiate the door to end the level
+        BoxCollider2D doorInstance;
+        Vector2 doorRdmPos = new Vector2(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
+        Quaternion newRotation = new Quaternion(0, 0, 0, 1);
+        doorInstance = Instantiate(doorPrefab, doorRdmPos, newRotation) as BoxCollider2D;
+
         GameObject btnLaunch = GameObject.Find("BtnLaunch");
         btnLaunch.SetActive(false);
     }
@@ -59,4 +67,5 @@ public class GameInstance : MonoBehaviour
         wallInstance = Instantiate(wallPrefab, newPosition, newRotation) as BoxCollider2D;
         return wallInstance;
     }
+
 }
