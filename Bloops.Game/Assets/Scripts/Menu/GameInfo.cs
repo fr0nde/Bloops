@@ -97,6 +97,12 @@ public class GameInfo : MonoBehaviour
 
     }
 
+    public void loadPreviousScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
     public void loadGameInstance()
     {
         SceneManager.LoadScene(3);
