@@ -105,6 +105,10 @@ public class GameInfo : MonoBehaviour
 
     public void loadGameInstance()
     {
-        SceneManager.LoadScene("InstanceGame");
+        LoadSceneInfo.startScene = "GameInstanceInfo";
+        LoadSceneInfo.nextScene = "InstanceGame";
+        LoadSceneInfo.timer = "2";
+        LoadSceneInfo.infoText = "Ceci est un texte d'information qui sera à l'avenir surement aléatoire";
+        SceneManager.LoadScene("LoadScene");
     }
 }
