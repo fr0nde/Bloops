@@ -48,24 +48,25 @@ public class PlayerCharacter : MonoBehaviour
                 rb2d.velocity = new Vector2(0f, 0f);
 
                 Vector2 movement = new Vector2(longueurX, longueurY);
+
                 rb2d.AddForce(new Vector2(-longueurX, -longueurY) * speed, ForceMode2D.Impulse);
                 launch = true;
             }
 
             if (!launch)
-            {
-                Vector2 positionRelative = new Vector2(touch.position.x, touch.position.y);
-                rb2d.position = cam.ScreenToWorldPoint(positionRelative);
+            { 
+                //Vector2 positionRelative = new Vector2(touch.position.x, touch.position.y);
+                //rb2d.position = cam.ScreenToWorldPoint(positionRelative);
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D target)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         rb2d.velocity = Vector2.zero;
 
         Debug.Log("Le personnage est entré dans un obstacle");
-        if (target.tag == "Finish")
+        if (collision.gameObject.tag == "Finish")
         {
             SceneManager.LoadScene(0);
         }
