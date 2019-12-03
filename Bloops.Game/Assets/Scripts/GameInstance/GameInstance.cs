@@ -25,9 +25,10 @@ public class GameInstance : MonoBehaviour
 
     public void Launch()
     {
+
         //instantiate the background
-        SpriteRenderer backgroundInstance;
-        backgroundInstance = Instantiate(backgroundPrefab) as SpriteRenderer;
+        //SpriteRenderer backgroundInstance;
+        //backgroundInstance = Instantiate(backgroundPrefab) as SpriteRenderer;
 
         //instantiate the character
         Rigidbody2D characterInstance;
@@ -39,7 +40,7 @@ public class GameInstance : MonoBehaviour
         BoxCollider2D wallInstance;
         for (int i = 1; i <= nbWall; i++)
         {
-            wallInstance = addWall(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
+            wallInstance = AddWall(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
             wallList.Add(wallInstance);
         }
 
@@ -55,10 +56,10 @@ public class GameInstance : MonoBehaviour
 
     public void Reset()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("InstanceGame");
     }
 
-    private BoxCollider2D addWall(float x, float y)
+    private BoxCollider2D AddWall(float x, float y)
     {
         BoxCollider2D wallInstance;
         Vector2 newPosition = new Vector2(x, y);

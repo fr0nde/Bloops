@@ -151,6 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopSpriteCollide: {fileID: 0}
+  BotSpriteCollide: {fileID: 0}
+  LeftSpriteCollide: {fileID: 0}
+  RightSpriteCollide: {fileID: 0}
 --- !u!61 &77728403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -466,6 +470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopSpriteCollide: {fileID: 0}
+  BotSpriteCollide: {fileID: 0}
+  LeftSpriteCollide: {fileID: 0}
+  RightSpriteCollide: {fileID: 0}
 --- !u!61 &404013246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -954,6 +962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopSpriteCollide: {fileID: 0}
+  BotSpriteCollide: {fileID: 0}
+  LeftSpriteCollide: {fileID: 0}
+  RightSpriteCollide: {fileID: 0}
 --- !u!61 &1206238980
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1192,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee3a61b850963a4cb94f2f9b4aa3e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallPrefab: {fileID: 953287097603846686, guid: ed56e798c57526e4082a533ec418de06,
+  wallPrefab: {fileID: 9090994073950000283, guid: ed56e798c57526e4082a533ec418de06,
     type: 3}
   characterPrefab: {fileID: 4491203790742317841, guid: c9f7eeddd5957584c8ed0ae41830bb54,
     type: 3}
@@ -1200,7 +1212,7 @@ MonoBehaviour:
     type: 3}
   doorPrefab: {fileID: 8795340591158326392, guid: 44bb821b3a2a36c46a43058d9bb719db,
     type: 3}
-  dragIndicator: {fileID: 9095084666789910846, guid: 981d7ff94e2974245a56dd8b56e205c2,
+  trajectoire: {fileID: 6377374149151224758, guid: 17e74ea9de0641b4abd22e0cccfeeacc,
     type: 3}
 --- !u!1 &2102893937
 GameObject:
@@ -1233,6 +1245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TopSpriteCollide: {fileID: 0}
+  BotSpriteCollide: {fileID: 0}
+  LeftSpriteCollide: {fileID: 0}
+  RightSpriteCollide: {fileID: 0}
 --- !u!61 &2102893939
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -26,32 +26,32 @@ public class Wall : MonoBehaviour
         {
             // If the ball hits the top of the brick
             Debug.Log("Hit TOP");
-            loadTextureHit(TopSpriteCollide);
+            LoadTextureHit(TopSpriteCollide);
         }
         else if (hit3 == gameObject.transform.up)
         {
             // If the ball hits the bottom of the brick
             Debug.Log("Hit BOT");
-            loadTextureHit(BotSpriteCollide);
+            LoadTextureHit(BotSpriteCollide);
 
         }
         else if (hit3 == gameObject.transform.right)
         {
             // If the ball hits the left of the brick
             Debug.Log("Hit LEFT");
-            loadTextureHit(LeftSpriteCollide);
+            LoadTextureHit(LeftSpriteCollide);
 
         }
         else if (hit3 == -gameObject.transform.right)
         {
             // If the ball hits the right of the brick
             Debug.Log("Hit RIGHT");
-            loadTextureHit(RightSpriteCollide);
+            LoadTextureHit(RightSpriteCollide);
 
         }
     }
 
-    void loadTextureHit(Sprite sp)
+    void LoadTextureHit(Sprite sp)
     {
         // Faire le changement de skin du mur pour avoir celui qui contient les traces de peinture
         //Sprite sp = Resources.Load("path") as Sprite;

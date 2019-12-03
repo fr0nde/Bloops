@@ -22,42 +22,25 @@ public class PlayerCharacter : MonoBehaviour
     void Update()
     {
         // Handle screen touches.
-        if (Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
-            Touch touch = Input.GetTouch(0);
-            bool launch = false;
+            posDeb = cam.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            posFin = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            if (touch.phase == TouchPhase.Began)
-            {
-                Vector3 positionRelative = new Vector3(touch.position.x, touch.position.y, 0);
-                posDeb = cam.ScreenToWorldPoint(positionRelative);
-            }
+            // Plus on rallonge le doigt sur l'axe horizontale, plus x augmente 
+            float longueurX = posFin.x - posDeb.x;
+            // Plus on rallonge le doigt sur l'axe verticale, plus y augmente 
+            float longueurY = posFin.y - posDeb.y;
 
-            if (touch.phase == TouchPhase.Ended)
-            {
-                Vector3 positionRelative = new Vector3(touch.position.x, touch.position.y, 0);
-                posFin = cam.ScreenToWorldPoint(positionRelative);
+            // Reset the force
+            rb2d.velocity = new Vector2(0f, 0f);
 
-                // Plus on rallonge le doigt sur l'axe horizontale, plus x augmente 
-                float longueurX = posFin.x - posDeb.x;
-                // Plus on rallonge le doigt sur l'axe verticale, plus y augmente 
-                float longueurY = posFin.y - posDeb.y;
-                Debug.Log("pos x : " + -longueurX + " pos y : " + -longueurY);
+            Vector2 movement = new Vector2(longueurX, longueurY);
 
-                // Reset the force
-                rb2d.velocity = new Vector2(0f, 0f);
-
-                Vector2 movement = new Vector2(longueurX, longueurY);
-
-                rb2d.AddForce(new Vector2(-longueurX, -longueurY) * speed, ForceMode2D.Impulse);
-                launch = true;
-            }
-
-            if (!launch)
-            { 
-                //Vector2 positionRelative = new Vector2(touch.position.x, touch.position.y);
-                //rb2d.position = cam.ScreenToWorldPoint(positionRelative);
-            }
+            rb2d.AddForce(new Vector2(-longueurX, -longueurY) * speed, ForceMode2D.Impulse);
         }
     }
 
@@ -68,7 +51,7 @@ public class PlayerCharacter : MonoBehaviour
         Debug.Log("Le personnage est entré dans un obstacle");
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("InstanceGame");
         }
     }
 }
