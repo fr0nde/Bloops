@@ -1,0 +1,101 @@
+@import '_reset.scss';
+@import '_variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+@import '_nav.scss';
+
+body {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+header {
+  height: calc(100vh - 120px);
+  background-image: url('/assets/header.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+footer {
+  height: 60px;
+  background-color: $black;
+  color: $white;
+  text-align: center;
+  line-height: 60px;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+p {
+  text-align: justify;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+  }
+
+  > div {
+    flex: 1;
+  }
+
+  &-white {
+    background-color: $white;
+  }
+
+  &-blue {
+    background-color: $blue;
+  }
+}
+
+.text-box {
+  margin: 40px;
+  @media (min-width: 992px) {
+    margin: 80px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 100px;
+  }
+}
+
+.images-box {
+  flex: 1;
+  background-color: $blue;
+  text-align: center;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  > img {
+    margin: 0 auto;
+    display: inline-block;
+    border: 2px solid $white;
+    height: 200px;
+  }
+}
+
+.separator {
+  height: 100px;
+  background-color: $black;
+
+  &.large {
+    height: 200px;
+  }
+}
+
+.news-section {
+  height: 880px;
+}
