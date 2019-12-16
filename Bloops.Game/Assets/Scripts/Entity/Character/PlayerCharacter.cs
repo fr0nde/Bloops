@@ -70,4 +70,22 @@ public class PlayerCharacter : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+            
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "BlocKill")
+        {
+            print($"Le personnage est mort il à touché le bloc qui tue");
+        }
+
+
+            
+        //        if ("toto" == BlocInfo.BlocType.KILL)
+  //          killCollision(collision);
+    }
 }

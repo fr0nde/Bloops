@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 322272851
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6d489010de7b86c429de58d5816b8792, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7cb4dd126c8d0f45ab59c0a32113e26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,10 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b8f850cac9ff74b98a8d57a09b3ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopSpriteCollide: {fileID: 21300000, guid: e9954dc7d18f65f43b47a60f51f91a91, type: 3}
-  BotSpriteCollide: {fileID: 21300000, guid: 3570a011649ab7c428a05550555aa2d3, type: 3}
-  LeftSpriteCollide: {fileID: 21300000, guid: 42b6068cb7214a746bac7bc02b89ceea, type: 3}
-  RightSpriteCollide: {fileID: 21300000, guid: 3e121528e97eb9f49b87afbbf00f2f1e, type: 3}
+  TopSpriteCollide: {fileID: 21300000, guid: 8efb485aad3940e4188f69f6dd8adf9e, type: 3}
+  BotSpriteCollide: {fileID: 21300000, guid: a65274c4a4694b941a4fd4ec418f88b0, type: 3}
+  LeftSpriteCollide: {fileID: 21300000, guid: 5ccc8e3a0569c4d4e8ed0a77f96249cd, type: 3}
+  RightSpriteCollide: {fileID: 21300000, guid: f7e8230694b0689409b6092d18857c09, type: 3}
 --- !u!61 &9090994073950000283
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,16 +111,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0000009536743, y: 0.35054064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 9.94, y: 10.8}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 7.9276266, y: 7.5468197}
   m_EdgeRadius: 0
