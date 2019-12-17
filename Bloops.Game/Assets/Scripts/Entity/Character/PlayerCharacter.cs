@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerCharacter : MonoBehaviour
+public class PlayerCharacter : GameInstance
 {
     public float speed;             //Floating point variable to store the player's movement speed.
     private Rigidbody2D character;       //Store a reference to the Rigidbody2D component required to use 2D Physics.

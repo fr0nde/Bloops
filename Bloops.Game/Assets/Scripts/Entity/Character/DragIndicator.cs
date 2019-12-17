@@ -11,7 +11,7 @@ public class DragIndicator : MonoBehaviour
     private Vector3 characterSize;
     public LineRenderer lr;
     public Material mat;
-    private Vector2 posCharacterWithoutSize = Vector2.zero;
+    private Vector3 posCharacterWithoutSize = Vector3.zero;
 
     Vector3 camOffset = new Vector3(0, 0, 10);
 
@@ -24,7 +24,6 @@ public class DragIndicator : MonoBehaviour
     {
         character = GetComponent<Rigidbody2D>();
         characterSize = GetComponent<CircleCollider2D>().bounds.size;
-        Debug.Log(characterSize);
         cam = Camera.main;
     }
 
@@ -95,9 +94,6 @@ public class DragIndicator : MonoBehaviour
                     // Récupère la pos du personnage
                     Vector3 posPersonnage = character.position;
                     // Ajoute la distance à la postion du personnage
-                    Debug.Log(endPos);
-                    Debug.Log(startPos);
-                    Debug.Log(distance);
                     // Maximum de distance de 2.5f
                     if (distance.x > 2.5f)
                     {
@@ -115,7 +111,25 @@ public class DragIndicator : MonoBehaviour
                     {
                         distance.y = -2.5f;
                     }
-                    Vector3 posFin = posPersonnage + distance;
+
+                    if (endPos.x < character.position.x)
+                    {
+                        posCharacterWithoutSize.x = posPersonnage.x - characterSize.x;
+                    }
+                    else
+                    {
+                        posCharacterWithoutSize.x = posPersonnage.x + characterSize.x;
+                    }
+                    if (endPos.y < character.position.y)
+                    {
+                        posCharacterWithoutSize.y = posPersonnage.y - characterSize.y;
+                    }
+                    else
+                    {
+                        posCharacterWithoutSize.y = posPersonnage.y + characterSize.y;
+                    }
+
+                    Vector3 posFin = posCharacterWithoutSize + distance;
                     // Set le deuxième points d'ancrage du linerenderer pour le dessiner
                     lr.SetPosition(1, posFin);
                 }
