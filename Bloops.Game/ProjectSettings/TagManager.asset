@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BlocKill
+  - Bloc_Kill
+  - Bloc_Slow
+  - Bloc_Tp
   layers:
   - Default
   - TransparentFX
@@ -42,9 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1939482591
+  - name: wall
+    uniqueID: 4133128829
     locked: 0
-  - name: Player
-    uniqueID: 322272851
+  - name: mark
+    uniqueID: 711868851
     locked: 0

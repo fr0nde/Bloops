@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +7,9 @@ public class Wall : MonoBehaviour
 {
     private BoxCollider2D bc2d;
     private SpriteRenderer spriteR;
-    public Sprite TopSpriteCollide;
-    public Sprite BotSpriteCollide;
-    public Sprite LeftSpriteCollide;
-    public Sprite RightSpriteCollide;
+
+    public GameObject wallPrefab;
+    public Sprite SplashSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,36 +19,10 @@ public class Wall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 hit = collision.contacts[0].normal;
+        Vector2 hit = collision.contacts[0].point;
         Vector3 hit3 = hit;
-
-        if (hit3 == -gameObject.transform.up)
-        {
-            // If the ball hits the top of the brick
-            Debug.Log("Hit TOP");
-            LoadTextureHit(TopSpriteCollide);
-        }
-        else if (hit3 == gameObject.transform.up)
-        {
-            // If the ball hits the bottom of the brick
-            Debug.Log("Hit BOT");
-            LoadTextureHit(BotSpriteCollide);
-
-        }
-        else if (hit3 == gameObject.transform.right)
-        {
-            // If the ball hits the left of the brick
-            Debug.Log("Hit LEFT");
-            LoadTextureHit(LeftSpriteCollide);
-
-        }
-        else if (hit3 == -gameObject.transform.right)
-        {
-            // If the ball hits the right of the brick
-            Debug.Log("Hit RIGHT");
-            LoadTextureHit(RightSpriteCollide);
-
-        }
+        Vector3 colliderSize = collision.transform.localScale;
+        AddSplashSprite(hit3, colliderSize);
     }
 
     void LoadTextureHit(Sprite sp)
@@ -57,6 +31,21 @@ public class Wall : MonoBehaviour
         //Sprite sp = Resources.Load("path") as Sprite;
 
         spriteR.sprite = sp;
+    }
+
+
+    void AddSplashSprite(Vector3 hitPos, Vector3 colliderScale)
+    {
+        GameObject go = new GameObject();
+        go.transform.position = hitPos;
+        SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
+        sr.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+        sr.sortingLayerName = "mark";
+        sr.sprite = SplashSprite;
+        sr.flipX = (UnityEngine.Random.value < 0.5);
+        sr.flipY = (UnityEngine.Random.value < 0.5);
+        sr.transform.localScale = colliderScale  + new Vector3(1.0F, 1.0F, 1.0F) * 0.2F; ;//wallPrefab.transform.localScale;
+        go.transform.parent = wallPrefab.transform;
     }
 
 }
