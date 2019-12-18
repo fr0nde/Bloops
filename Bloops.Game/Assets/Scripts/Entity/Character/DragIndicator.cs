@@ -26,10 +26,28 @@ public class DragIndicator : MonoBehaviour
         characterSize = GetComponent<CircleCollider2D>().radius;
         // Get camera
         cam = Camera.main;
-        // Init un go lineRenderer
-        lr = gameObject.AddComponent<LineRenderer>();
         // Pour enlever le warning d'init de la variable...
         if (ac == null) ac = new AnimationCurve();
+        // Init un go lineRenderer
+        lr = gameObject.AddComponent<LineRenderer>();
+        // Indique au go qu'il a deux points d'ancrage
+        lr.positionCount = 2;
+        // Utilise l'espace du téléphone
+        lr.useWorldSpace = true;
+        // set le layer du linerenderer
+        lr.sortingLayerName = "Player";
+        // Ajoute l'animationCurve pour un effet de triangle
+        lr.widthCurve = ac;
+        // Ajoute des bords arrondis
+        lr.numCapVertices = 5;
+        //taille
+        lr.widthMultiplier = 0.8f;
+        // Ajoute le material de base
+        lr.material = new Material(Shader.Find("Sprites/Default"));
+        // Ajoute une couleur 
+        lr.material.color = new Color32(231, 228, 227, 80);
+        // Ne montre pas le lineRenderer a son instantiation
+        lr.enabled = false;
     }
 
     // Update is called once per frame
@@ -45,28 +63,18 @@ public class DragIndicator : MonoBehaviour
                 lr.enabled = true;
                 // Récupère la position du doigt lors du premier touché de l'écran
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition) + camOffset;
-                // Indique au go qu'il a deux points d'ancrage
-                lr.positionCount = 2;
+                
                 // Set le premier point d'ancrage à la position du personnage
                 lr.SetPosition(0, character.position);
                 // Utilise les coordonées x y similaires selon l'écran
-                lr.useWorldSpace = true;
-                // set le layer du linerenderer
-                lr.sortingLayerName = "Player";
-                // Ajoute l'animationCurve pour un effet de triangle
-                lr.widthCurve = ac;
-                // Ajoute des bords arrondis
-                lr.numCapVertices = 5;
-                //taille
-                lr.widthMultiplier = 0.8f;
-                // Ajoute le material de base
-                lr.material = new Material(Shader.Find("Sprites/Default"));
-                // Ajoute une couleur 
-                lr.material.color = new Color32(231, 228, 227, 80);
+                
             }
             // Quand on a toujours le doigt sur l'écran
             if (Input.GetMouseButton(0))
             {
+                // Corrige le problème de drag invisible
+                // Si le joueur laisse son doigt alors que le personange bouge
+                lr.enabled = true;
                 // Récupère la position du doigt à l'instant présent
                 endPos = cam.ScreenToWorldPoint(Input.mousePosition) + camOffset;
 
