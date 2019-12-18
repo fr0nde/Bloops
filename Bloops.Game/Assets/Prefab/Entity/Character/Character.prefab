@@ -68,7 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e7e0aafc5dd30e449860b5d6d39afd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  wallPrefab: {fileID: 0}
+  characterPrefab: {fileID: 0}
+  backgroundPrefab: {fileID: 0}
+  doorPrefab: {fileID: 0}
+  speed: 4
 --- !u!212 &225622953086624259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,8 +108,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1939482591
-  m_SortingLayer: 1
+  m_SortingLayerID: 322272851
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ed25667e081ffcc4eac93f1b67904f3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,8 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736da3ab79b35a54aa0c00bee482e473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lr: {fileID: 0}
-  mat: {fileID: 0}
+  playerScript: {fileID: 5310858084955138901}
   ac:
     serializedVersion: 2
     m_Curve:

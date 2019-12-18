@@ -10,6 +10,10 @@ public class GameInstance : MonoBehaviour
     public SpriteRenderer backgroundPrefab;
     public BoxCollider2D doorPrefab;
 
+    private float timer;
+    private bool launchTimer = false;
+    private int nbTry;
+
     //void Awake()
     //{
     //    // Get the character
@@ -25,6 +29,8 @@ public class GameInstance : MonoBehaviour
 
     public void Launch()
     {
+        //launch timer
+        launchTimer = true;
 
         //instantiate the background
         //SpriteRenderer backgroundInstance;
@@ -54,8 +60,15 @@ public class GameInstance : MonoBehaviour
         btnLaunch.SetActive(false);
     }
 
+    void Update()
+    {
+        if (launchTimer) timer += Time.deltaTime;
+    }
+
     public void Reset()
     {
+        launchTimer = false;
+        Debug.Log("Temps du niveau : " + timer.ToString("F") + " secondes.");
         SceneManager.LoadScene("InstanceGame");
     }
 
