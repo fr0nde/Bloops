@@ -1,15 +1,53 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public enum EventEnum
+{
+    SLOW,
+    KILL
+}
 
 public class PlayerCharacter : GameInstance
 {
-    public float speed;             //Floating point variable to store the player's movement speed.
-    private Rigidbody2D character;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    public float speed;//Floating point variable to store the player's movement speed.
 
-    // Use this for initialization
-    void Start()
+    private float currentSpeed;
+
+    private List<string> events;
+
+    private Rigidbody2D character;//Store a reference to the Rigidbody2D component required to use 2D Physics.
+
+    private Dictionary<EventEnum, bool> coroutineState;
+
+    private IEnumerator coroutine;
+
+    internal void EventCoroutine(float timer, EventEnum typeEvent, Action fctStart, Action fctEnd)
+    {
+        if (coroutineState.ContainsKey(typeEvent) && coroutineState[typeEvent] == true)
+        {
+            print("je skipp");
+            return;
+
+        }
+        coroutineState[typeEvent] = true;
+        fctStart();
+        coroutine = WaitAndPrint(timer, typeEvent, fctEnd);
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator WaitAndPrint(float waitTime, EventEnum typeEvent, Action callback)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTime);
+            callback();
+            coroutineState[typeEvent] = false;
+        }
+    }
+
+    internal void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
@@ -35,10 +73,17 @@ public class PlayerCharacter : GameInstance
         {
             print($"Le personnage est mort il à touché le bloc qui tue");
         }
+        if (collision.gameObject.tag == "Bloc_Slow")
+        {
+            print($"Le personnage est ralentit");
+            EventCoroutine(5F, EventEnum.SLOW, () => setPlayerSpeed(0.2F), () => setPlayerSpeed(1F));
+        }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void setPlayerSpeed(float speedRate)
     {
-            
+        float newSpeed = speed * speedRate;
+        print($"La vitesse du joueur à été modifier, {currentSpeed} => {newSpeed}");
+        currentSpeed = newSpeed;
     }
 }
