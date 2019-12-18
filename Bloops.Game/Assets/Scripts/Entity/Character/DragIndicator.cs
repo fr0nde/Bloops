@@ -83,12 +83,22 @@ public class DragIndicator : MonoBehaviour
                 // Calcul la distance du linerenderer
                 float distTotal = Vector3.Distance(character.position, reversedEndPos);
                 // Bloque la distance a 3F
-                if (distTotal > 3F) distTotal = 3F;
-                // Calcule la position de fin 
-                Vector3 posFin = calculPos(character.position, reversedEndPos, distTotal);
-                lr.SetPosition(1, posFin);
-                // Stock la distance total du drag
-                totalDistance = posFin - posDeb;
+                if (distTotal > 3.5F) distTotal = 3.5F;
+                // Génere le deuxième point du linerenderer à partir du taille minimal
+                if (distTotal > 0.8F)
+                {
+                    lr.material.color = new Color32(231, 228, 227, 80);
+                    // Calcule la position de fin 
+                    Vector3 posFin = calculPos(character.position, reversedEndPos, distTotal);
+                    lr.SetPosition(1, posFin);
+                    // Stock la distance total du drag
+                    totalDistance = posFin - posDeb;
+                } else
+                {
+                    lr.material.color = new Color32(231, 228, 227, 0);
+                    totalDistance = Vector3.zero;
+                }
+                
             }
         }
         // Quand on relache le doigt de l'écran
