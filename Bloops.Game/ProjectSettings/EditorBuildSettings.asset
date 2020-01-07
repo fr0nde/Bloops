@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Scene_Test/test_mur.unity
-    guid: 961b3dcdccaef754887ded800658c2d3
-  - enabled: 1
     path: Assets/Scenes/LoadScene/LoadScene.unity
     guid: 645979ffd4f33c54088c5494d7e57598
   - enabled: 1
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InstanceGame/InstanceGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scene_Test/test_mur.unity
+    guid: 961b3dcdccaef754887ded800658c2d3
   m_configObjects: {}

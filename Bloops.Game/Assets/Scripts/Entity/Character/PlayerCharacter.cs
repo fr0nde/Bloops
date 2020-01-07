@@ -19,7 +19,7 @@ public class PlayerCharacter : GameInstance
 
     private Rigidbody2D character;//Store a reference to the Rigidbody2D component required to use 2D Physics.
 
-    private Dictionary<EventEnum, bool> coroutineState;
+    private Dictionary<EventEnum, bool> coroutineState = new Dictionary<EventEnum, bool>();
 
     private IEnumerator coroutine;
 
@@ -39,18 +39,16 @@ public class PlayerCharacter : GameInstance
 
     private IEnumerator WaitAndPrint(float waitTime, EventEnum typeEvent, Action callback)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
-            callback();
-            coroutineState[typeEvent] = false;
-        }
+        yield return new WaitForSeconds(waitTime);
+        callback();
+        coroutineState[typeEvent] = false;
     }
 
     internal void Start()
     {
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
+        currentSpeed = speed;
     }
 
     public void LaunchPlayer(Vector3 dragDistance)
@@ -58,7 +56,7 @@ public class PlayerCharacter : GameInstance
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 
-        character.AddForce(-dragDistance * speed, ForceMode2D.Impulse);
+        character.AddForce(-dragDistance * currentSpeed, ForceMode2D.Impulse);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -76,14 +74,15 @@ public class PlayerCharacter : GameInstance
         if (collision.gameObject.tag == "Bloc_Slow")
         {
             print($"Le personnage est ralentit");
-            EventCoroutine(5F, EventEnum.SLOW, () => setPlayerSpeed(0.2F), () => setPlayerSpeed(1F));
+            EventCoroutine(5F, EventEnum.SLOW, () => setPlayerSpeed(0.2F, EventEnum.SLOW), () => setPlayerSpeed(1F, EventEnum.SLOW));
         }
     }
 
-    void setPlayerSpeed(float speedRate)
+    void setPlayerSpeed(float speedRate, EventEnum typeEvent)
     {
         float newSpeed = speed * speedRate;
-        print($"La vitesse du joueur à été modifier, {currentSpeed} => {newSpeed}");
+        print($"La vitesse du joueur à été modifier, current: {currentSpeed} => new: {newSpeed}");
         currentSpeed = newSpeed;
+        coroutineState[typeEvent] = false;
     }
 }
