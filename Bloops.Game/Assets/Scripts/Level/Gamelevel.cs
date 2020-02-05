@@ -13,7 +13,6 @@ public class Gamelevel : MonoBehaviour
     void Start()
     {
         int gameLevel = (Convert.ToInt32(worldLevel) * 10) - 9;
-
         Button[] buttons = GetComponentsInChildren<Button>();
         foreach (Button button in buttons)
         {
