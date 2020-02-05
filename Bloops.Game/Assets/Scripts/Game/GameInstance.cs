@@ -10,10 +10,6 @@ public class GameInstance : MonoBehaviour
     public SpriteRenderer backgroundPrefab;
     public BoxCollider2D doorPrefab;
 
-    private float timer;
-    private bool launchTimer = false;
-    private int nbTry;
-
     //void Awake()
     //{
     //    // Get the character
@@ -29,8 +25,8 @@ public class GameInstance : MonoBehaviour
 
     public void Launch()
     {
-        //launch timer
-        launchTimer = true;
+        //launch timer and instantiate gameInstance data
+        GameInstanceInfo.init();
 
         //instantiate the background
         //SpriteRenderer backgroundInstance;
@@ -62,14 +58,25 @@ public class GameInstance : MonoBehaviour
 
     void Update()
     {
-        if (launchTimer) timer += Time.deltaTime;
+        if (GameInstanceInfo.launchTimer) GameInstanceInfo.timer += Time.deltaTime;
     }
 
     public void Reset()
     {
-        launchTimer = false;
-        Debug.Log("Temps du niveau : " + timer.ToString("F") + " secondes.");
+        GameInstanceInfo.launchTimer = false;
+        Debug.Log("Temps du niveau : " + GameInstanceInfo.timer.ToString("F") + " secondes.");
+        Debug.Log("nb try : " + GameInstanceInfo.nbTry);
+        Debug.Log("nb rebond : " + GameInstanceInfo.nbBounce);
         SceneManager.LoadScene("InstanceGame");
+    }
+
+    public static void EndLevel()
+    {
+        GameInstanceInfo.launchTimer = false;
+        Debug.Log("Temps du niveau : " + GameInstanceInfo.timer.ToString("F") + " secondes.");
+        Debug.Log("nb try : " + GameInstanceInfo.nbTry);
+        Debug.Log("nb rebond : " + GameInstanceInfo.nbBounce);
+        SceneManager.LoadScene("EndLevel");
     }
 
     private BoxCollider2D AddWall(float x, float y)

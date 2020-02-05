@@ -7,6 +7,7 @@ TagManager:
   - Bloc_Kill
   - Bloc_Slow
   - Bloc_Tp
+  - Game_Instance
   layers:
   - Default
   - TransparentFX

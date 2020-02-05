@@ -9,8 +9,9 @@ public enum EventEnum
     KILL
 }
 
-public class PlayerCharacter : GameInstance
+public class PlayerCharacter : MonoBehaviour
 {
+
     public float speed;//Floating point variable to store the player's movement speed.
 
     private float currentSpeed;
@@ -43,9 +44,9 @@ public class PlayerCharacter : GameInstance
         callback();
         coroutineState[typeEvent] = false;
     }
-
+    
     internal void Start()
-    {
+    {    
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
@@ -56,7 +57,9 @@ public class PlayerCharacter : GameInstance
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 
-        character.AddForce(-dragDistance * currentSpeed, ForceMode2D.Impulse);
+        character.AddForce(-dragDistance * speed, ForceMode2D.Impulse);
+
+        GameInstanceInfo.nbBounce++;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -65,11 +68,12 @@ public class PlayerCharacter : GameInstance
 
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene("InstanceGame");
+            GameInstance.EndLevel();
         }
         if (collision.gameObject.tag == "BlocKill")
         {
             print($"Le personnage est mort il à touché le bloc qui tue");
+            GameInstanceInfo.nbTry++;
         }
         if (collision.gameObject.tag == "Bloc_Slow")
         {

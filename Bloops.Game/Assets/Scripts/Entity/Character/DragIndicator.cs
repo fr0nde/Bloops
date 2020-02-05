@@ -9,17 +9,19 @@ public class DragIndicator : MonoBehaviour
     private Vector3 endPos;
     private Camera cam;
     private Rigidbody2D character;
+    public GameObject playerScript;
+    private PlayerCharacter PlayerCharacter;
     private float characterSize;
     private Vector3 totalDistance;
     private LineRenderer lr;
     private Vector3 camOffset = new Vector3(0, 0, 10);
     [SerializeField] private AnimationCurve ac;
 
-    public GameObject playerScript;
-
     // Start is called before the first frame update
     void Start()
     {
+        // Get PlayerScript
+        PlayerCharacter = playerScript.GetComponent<PlayerCharacter>();
         // Get character
         character = GetComponent<Rigidbody2D>();
         // Get charachter radius
@@ -90,12 +92,22 @@ public class DragIndicator : MonoBehaviour
 
                 // Calcul la distance du linerenderer
                 float distTotal = Vector3.Distance(character.position, reversedEndPos);
-                // Bloque la distance a 3F
+                // Bloque la distance a 3.5F
                 if (distTotal > 3.5F) distTotal = 3.5F;
                 // Génere le deuxième point du linerenderer à partir du taille minimal
                 if (distTotal > 0.8F)
                 {
-                    lr.material.color = new Color32(231, 228, 227, 80);
+                    // Calcule une valeur entre 80 et 255 pour l'opacité du lineRenderer
+                    int colorOpacity = (int)(80 * distTotal);
+                    if (colorOpacity < 80)
+                    {
+                        colorOpacity = 80;
+                    } else if (colorOpacity > 255)
+                    {
+                        colorOpacity = 255;
+                    }
+                    // new Color32(231, 228, 227, (byte)colorOpacity)
+                    lr.material.color = new Color32(58, 154, 255, (byte)colorOpacity);
                     // Calcule la position de fin 
                     Vector3 posFin = calculPos(character.position, reversedEndPos, distTotal);
                     lr.SetPosition(1, posFin);
@@ -112,11 +124,10 @@ public class DragIndicator : MonoBehaviour
         // Quand on relache le doigt de l'écran
         if (Input.GetMouseButtonUp(0))
         {
-            // Get the PlayerCharacter.cs script
-            var PlayerCharacter = playerScript.GetComponent<PlayerCharacter>();
+            // Fonction LaunchPlayer dans le script PlayerCharacter
             PlayerCharacter.LaunchPlayer(totalDistance);
 
-            //Désactive le linerenderer
+            // Désactive le linerenderer
             lr.enabled = false;
         }
     }
