@@ -341,5 +341,25 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1293881173}
+    - target: {fileID: 2711914662854170821, guid: 097e9c9a48f967043b9fb111b451f1fc,
+        type: 3}
+      propertyPath: fileName
+      value: niveau_2.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711914661103520922, guid: 097e9c9a48f967043b9fb111b451f1fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711914661912799107, guid: 097e9c9a48f967043b9fb111b451f1fc,
+        type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711914661912799104, guid: 097e9c9a48f967043b9fb111b451f1fc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: saveMap
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 097e9c9a48f967043b9fb111b451f1fc, type: 3}

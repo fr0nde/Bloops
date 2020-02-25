@@ -13,9 +13,12 @@ public class GenerateWall : MonoBehaviour
     public GameObject prefab;
     public Camera cam;
     public Text fileText;
-    public string fileName;
+    public string fileName = "template.txt";
+    private Map map;
+
 
     public List<GameObjectPosition> gameObjectPositions = new List<GameObjectPosition>() { };
+
     [System.Serializable]
     public class GameObjectPosition
     {
@@ -31,10 +34,33 @@ public class GenerateWall : MonoBehaviour
 
 
     private List<GameObject> InstanceReferences = new List<GameObject>() { };
-    
+
+
     void Start()
     {
-        readFile($"{fileName}.txt");
+        map = Utils.LoadJsonMap(fileName);
+        LoadMap();
+    }
+
+    public void saveMap()
+    {
+        map = new Map();
+        foreach (GameObjectPosition pos in gameObjectPositions)
+        {
+            map.blocs.Add(new Bloc(Type.MUR, pos.x, pos.y));
+        }
+        Utils.SaveJsonMap(fileText.text, map);
+    }
+
+    private void LoadMap()
+    {
+        foreach (Bloc bloc in map.blocs)
+        {
+            int xPos = bloc.pos_x;
+            int yPos = bloc.pos_y;
+
+            gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
+        }
     }
 
     void cleanCustomGeneration()
@@ -46,46 +72,23 @@ public class GenerateWall : MonoBehaviour
         InstanceReferences = new List<GameObject>() { };
     }
 
-    void generateCustomGeneration(List<GameObjectPosition> selectedPositions)
+    void fillCustomGeneration()
     {
-        foreach (GameObjectPosition selectedPosition in selectedPositions)
+        foreach (GameObjectPosition pos in gameObjectPositions)
         {
-            int xCalculated = selectedPosition.x;
-            int yCalculated = selectedPosition.y;
-
-            //Debug.Log($"xC: {xCalculated}, yC: {yCalculated}");
-            InstanceReferences.Add(Instantiate(prefab, new Vector3(xStart + (x * xCalculated), yStart + (y * -yCalculated)), Quaternion.identity));
-        }
-    }
-
-    private void readFile(string file)
-    {
-        IEnumerable<string> lines = System.IO.File.ReadLines($@"Assets\Resources\Map\{file}");
-        foreach (string line in lines)
-        {
-            string[] Pos = line.Split(';');
-            int xPos = System.Convert.ToInt32(Pos[0]);
-            int yPos = System.Convert.ToInt32(Pos[1]);
-            gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
+            int xPos = pos.x;
+            int yPos = pos.y;
+            
             InstanceReferences.Add(Instantiate(prefab, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity));
         }
     }
 
-
-    public void saveFile()
-    {
-        string text = "";
-        foreach (GameObjectPosition pos in gameObjectPositions)
-        {
-            text += $"{pos.x};{pos.y}\n";
-        }
-        System.IO.File.WriteAllText($@"Assets\Resources\Map\{fileText.text}.txt", text);
-    }
+ 
 
     // Update is called once per frame
     void Update()
     {
         cleanCustomGeneration();
-        generateCustomGeneration(gameObjectPositions);
+        fillCustomGeneration();
     }
 }

@@ -1,6 +1,16 @@
 {
   "name": "",
   "rules": [],
+  "character": {
+    "type": "PERSONNAGE",
+    "pos_x": 1,
+    "pos_y": 1
+  },
+  "portal": {
+    "type": "PORTAIL",
+    "pos_x": 13,
+    "pos_y": 7
+  },
   "blocs": [
     {
       "type": 0,
@@ -239,58 +249,88 @@
     },
     {
       "type": 0,
-      "pos_x": 16,
+      "pos_x": 3,
       "pos_y": 1
     },
     {
       "type": 0,
-      "pos_x": 1,
+      "pos_x": 3,
       "pos_y": 2
     },
     {
       "type": 0,
-      "pos_x": 1,
+      "pos_x": 3,
       "pos_y": 3
     },
     {
       "type": 0,
-      "pos_x": 2,
-      "pos_y": 2
-    },
-    {
-      "type": 0,
-      "pos_x": 2,
-      "pos_y": 3
-    },
-    {
-      "type": 0,
-      "pos_x": 5,
+      "pos_x": 3,
       "pos_y": 4
     },
     {
       "type": 0,
-      "pos_x": 5,
-      "pos_y": 5
-    },
-    {
-      "type": 0,
-      "pos_x": 5,
-      "pos_y": 6
-    },
-    {
-      "type": 0,
-      "pos_x": 5,
+      "pos_x": 3,
       "pos_y": 7
     },
     {
       "type": 0,
-      "pos_x": 10,
+      "pos_x": 6,
       "pos_y": 1
     },
     {
       "type": 0,
-      "pos_x": 10,
+      "pos_x": 6,
+      "pos_y": 4
+    },
+    {
+      "type": 0,
+      "pos_x": 6,
+      "pos_y": 5
+    },
+    {
+      "type": 0,
+      "pos_x": 6,
+      "pos_y": 6
+    },
+    {
+      "type": 0,
+      "pos_x": 6,
+      "pos_y": 7
+    },
+    {
+      "type": 0,
+      "pos_x": 9,
+      "pos_y": 1
+    },
+    {
+      "type": 0,
+      "pos_x": 9,
       "pos_y": 2
+    },
+    {
+      "type": 0,
+      "pos_x": 9,
+      "pos_y": 3
+    },
+    {
+      "type": 0,
+      "pos_x": 9,
+      "pos_y": 4
+    },
+    {
+      "type": 0,
+      "pos_x": 9,
+      "pos_y": 7
+    },
+    {
+      "type": 0,
+      "pos_x": 12,
+      "pos_y": 1
+    },
+    {
+      "type": 0,
+      "pos_x": 12,
+      "pos_y": 4
     },
     {
       "type": 0,
@@ -299,53 +339,18 @@
     },
     {
       "type": 0,
-      "pos_x": 13,
-      "pos_y": 3
-    },
-    {
-      "type": 0,
-      "pos_x": 13,
-      "pos_y": 4
-    },
-    {
-      "type": 0,
-      "pos_x": 13,
-      "pos_y": 5
-    },
-    {
-      "type": 0,
-      "pos_x": 14,
-      "pos_y": 3
-    },
-    {
-      "type": 0,
-      "pos_x": 14,
-      "pos_y": 4
-    },
-    {
-      "type": 0,
-      "pos_x": 14,
-      "pos_y": 5
-    },
-    {
-      "type": 0,
-      "pos_x": 15,
-      "pos_y": 5
-    },
-    {
-      "type": 0,
-      "pos_x": 15,
+      "pos_x": 12,
       "pos_y": 6
+    },
+    {
+      "type": 0,
+      "pos_x": 12,
+      "pos_y": 7
+    },
+    {
+      "type": 0,
+      "pos_x": 16,
+      "pos_y": 1
     }
-  ],
-  "character": {
-    "type": "personnage",
-    "pos_x": 1,
-    "pos_y": 1
-  },
-  "portal": {
-    "type": "portail",
-    "pos_x": 15,
-    "pos_y": 7
-  }
+  ]
 }

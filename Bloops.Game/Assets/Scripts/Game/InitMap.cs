@@ -44,37 +44,43 @@ public class InitMap : MonoBehaviour
 
     void Start()
     {
-        levelName = $"niveau_{GameSceneInfo.level}.json";
+        levelName = $"niveau_{GameSceneInfo.level}.txt";
         map = Utils.LoadJsonMap(levelName);
         LoadMap();
     }
 
-    private void InstantiateCharacter(int xPos, int yPos)
+    private void InstantiateCharacter()
     {
+        int xPos = map.character.pos_x;
+        int yPos = map.character.pos_y;
+
         GameObject character = Instantiate(prefab_character, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
         character.transform.localScale += new Vector3(-0.2f, -0.2f, -0.01f);
         InstanceReferences.Add(character);
     }
 
+    private void InstantiatePortal()
+    {
+        int xPos = map.portal.pos_x;
+        int yPos = map.portal.pos_y;
+
+        Instantiate(prefab_finisher, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
+    }
+
 
     private void LoadMap()
     {
+        InstantiateCharacter();
+        InstantiatePortal();
+
         foreach (Bloc bloc in map.blocs)
         {
             int xPos = bloc.pos_x;
             int yPos = bloc.pos_y;
 
-            gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
-            if (bloc.type == "character")
+            if (bloc.type == Type.MUR)
             {
-                InstantiateCharacter(xPos, yPos);
-            }
-            else if (bloc.type == "finisher")
-            {
-                Instantiate(prefab_finisher, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
-            }
-            else if (bloc.type == "wall")
-            {
+                gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
                 InstanceReferences.Add(Instantiate(prefab_wall, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity));
             }
         }

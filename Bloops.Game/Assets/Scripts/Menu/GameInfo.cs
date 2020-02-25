@@ -45,6 +45,9 @@ public class GameInfo : MonoBehaviour
     private int skinIndex = 0;
     private uint gameLevel;
 
+    private Map map;
+
+
     void Start()
     {
         LevelContainer.Initialize();
@@ -56,10 +59,21 @@ public class GameInfo : MonoBehaviour
         //List<string> instruction = new List<string>() { "Gravité activé", "Moins de 3 rebonds", "Moins de 10 secondes" };
         //LevelInstance levelInstance = new LevelInstance("Fôret Magique", GameSceneInfo.level, instruction);
 
-        initMapInfo(level, world);
-        loadSkin(skins[0]);
+        string levelName = $"niveau_{GameSceneInfo.level}.json";
+        map = Utils.LoadJsonMap(levelName);
+        initMapInfoV2();
+//        initMapInfo(level, world);
+  //      loadSkin(skins[0]);
     }
 
+    private void initMapInfoV2()
+    {
+        // Initialise le titre du niveau
+        titleText.text = map.name;
+        // Initialise la description du niveau
+        List<string> instructions = map.rules;
+        infoText.text = string.Join("\n", instructions);
+    }
     private void initMapInfo(Level level, World world)
     {
         // Initialise le titre du niveau
