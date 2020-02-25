@@ -20,22 +20,6 @@ public class InitMap : MonoBehaviour
     public GameObject prefab_character;
     public BoxCollider2D prefab_finisher;
 
-
-    [System.Serializable]
-    public class Bloc
-    {
-        public string type;
-        public int pos_x;
-        public int pos_y;
-    }
-
-    [System.Serializable]
-    public class Map
-    {
-        public string name;
-        public string[] rules;
-        public Bloc[] blocs;
-    }
     public class GameObjectPosition
     {
         public int x;
@@ -61,17 +45,17 @@ public class InitMap : MonoBehaviour
     void Start()
     {
         levelName = $"niveau_{GameSceneInfo.level}.json";
-        LoadJson("niveau_1.json");
+        map = Utils.LoadJsonMap(levelName);
         LoadMap();
     }
 
-    private void LoadJson(string fileName)
+    private void InstantiateCharacter(int xPos, int yPos)
     {
-        string text = System.IO.File.ReadAllText($@"Assets\Resources\Map\{fileName}");
-
-        map =  JsonUtility.FromJson<Map>(text);
-
+        GameObject character = Instantiate(prefab_character, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
+        character.transform.localScale += new Vector3(-0.2f, -0.2f, -0.01f);
+        InstanceReferences.Add(character);
     }
+
 
     private void LoadMap()
     {
@@ -83,9 +67,7 @@ public class InitMap : MonoBehaviour
             gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
             if (bloc.type == "character")
             {
-                GameObject character = Instantiate(prefab_character, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
-                character.transform.localScale += new Vector3(-0.2f, -0.2f, -0.01f);
-                InstanceReferences.Add(character);
+                InstantiateCharacter(xPos, yPos);
             }
             else if (bloc.type == "finisher")
             {
