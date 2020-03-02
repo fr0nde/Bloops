@@ -24,6 +24,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    private Animator anim;
+
     internal void EventCoroutine(float timer, EventEnum typeEvent, Action fctStart, Action fctEnd)
     {
         if (coroutineState.ContainsKey(typeEvent) && coroutineState[typeEvent] == true)
@@ -49,11 +51,15 @@ public class PlayerCharacter : MonoBehaviour
     {    
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         currentSpeed = speed;
     }
 
     public void LaunchPlayer(Vector3 dragDistance)
     {
+        anim.SetBool("is_launching", true);
+
+        SoundManager.PlaySound("launch_1");
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 
@@ -65,24 +71,37 @@ public class PlayerCharacter : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         character.velocity = Vector2.zero;
+        anim.SetBool("is_launching", false);
+
+        // rdm sound just for test
+        int rdmSound = UnityEngine.Random.Range(1, 4);
+        Debug.Log(rdmSound);
+        SoundManager.PlaySound("impact_"+ rdmSound);
 
         if (collision.gameObject.tag == "Finish")
         {
             GameInstance.EndLevel();
         }
-        if (collision.gameObject.tag == "BlocKill")
+        if (collision.gameObject.tag == "Bloc_Kill")
         {
+            
             print($"Le personnage est mort il à touché le bloc qui tue");
             GameInstanceInfo.nbTry++;
+            character.position = GameInstanceInfo.positionDepart;
         }
         if (collision.gameObject.tag == "Bloc_Slow")
         {
             print($"Le personnage est ralentit");
-            EventCoroutine(5F, EventEnum.SLOW, () => setPlayerSpeed(0.2F, EventEnum.SLOW), () => setPlayerSpeed(1F, EventEnum.SLOW));
+            EventCoroutine(5F, EventEnum.SLOW, () => SetPlayerSpeed(0.2F, EventEnum.SLOW), () => SetPlayerSpeed(1F, EventEnum.SLOW));
+        }
+        if (collision.gameObject.tag == "Bloc_Moving")
+        {
+            print($"Le personnage bouge avec l'obstacle");
+            
         }
     }
 
-    void setPlayerSpeed(float speedRate, EventEnum typeEvent)
+    void SetPlayerSpeed(float speedRate, EventEnum typeEvent)
     {
         float newSpeed = speed * speedRate;
         print($"La vitesse du joueur à été modifier, current: {currentSpeed} => new: {newSpeed}");

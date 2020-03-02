@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public static class GameInstanceInfo
 {
@@ -10,6 +11,7 @@ public static class GameInstanceInfo
     public static bool launchTimer { get; set; } = false;
     public static int nbTry { get; set; }
     public static int nbBounce { get; set; }
+    public static Vector2 positionDepart { get; set; }
 
     public static void init()
     {
@@ -17,5 +19,6 @@ public static class GameInstanceInfo
         launchTimer = true;
         nbTry = 1;
         nbBounce = 0;
+        positionDepart = Vector2.zero;
     }
 }

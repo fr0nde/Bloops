@@ -9,6 +9,8 @@ public class GameInstance : MonoBehaviour
     public Rigidbody2D characterPrefab;
     public SpriteRenderer backgroundPrefab;
     public BoxCollider2D doorPrefab;
+    public CircleCollider2D wheelPrefab;
+    public BoxCollider2D movingBloc;
 
     //void Awake()
     //{
@@ -35,9 +37,10 @@ public class GameInstance : MonoBehaviour
         //instantiate the character
         Rigidbody2D characterInstance;
         characterInstance = Instantiate(characterPrefab) as Rigidbody2D;
+        GameInstanceInfo.positionDepart = characterInstance.position;
 
-        // instantiate btw 1 and 5 walls 
-        int nbWall = Random.Range(2, 6);
+        // instantiate btw 1 and 4 walls 
+        int nbWall = Random.Range(2, 5);
         List<BoxCollider2D> wallList = new List<BoxCollider2D>();
         BoxCollider2D wallInstance;
         for (int i = 1; i <= nbWall; i++)
@@ -45,6 +48,20 @@ public class GameInstance : MonoBehaviour
             wallInstance = AddWall(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
             wallList.Add(wallInstance);
         }
+
+        // instantiate btw 1 and 3 wheel 
+        int nbWheel = Random.Range(2, 4);
+        List<CircleCollider2D> wheelList = new List<CircleCollider2D>();
+        CircleCollider2D wheelInstance;
+        for (int i = 1; i <= nbWheel; i++)
+        {
+            wheelInstance = AddWheel(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f));
+            wheelList.Add(wheelInstance);
+        }
+
+        //instantiate a moving bloc
+        BoxCollider2D movingBlocInstance;
+        movingBlocInstance = Instantiate(movingBloc, new Vector2(Random.Range(-4.0f, 10.0f), Random.Range(-4.0f, 10.0f)), new Quaternion(0, 0, 0, 1)) as BoxCollider2D;
 
         //instantiate the door to end the level
         BoxCollider2D doorInstance;
@@ -87,6 +104,16 @@ public class GameInstance : MonoBehaviour
 
         wallInstance = Instantiate(wallPrefab, newPosition, newRotation) as BoxCollider2D;
         return wallInstance;
+    }
+
+    private CircleCollider2D AddWheel(float x, float y)
+    {
+        CircleCollider2D wheelInstance;
+        Vector2 newPosition = new Vector2(x, y);
+        Quaternion newRotation = new Quaternion(0, 0, 0, 1);
+
+        wheelInstance = Instantiate(wheelPrefab, newPosition, newRotation) as CircleCollider2D;
+        return wheelInstance;
     }
 
 }
