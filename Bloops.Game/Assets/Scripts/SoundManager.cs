@@ -5,16 +5,20 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    public static AudioClip playerLaunchSound, playerHitSound1, playerHitSound2, playerHitSound3;
+    public static AudioClip playerLaunchSound1, playerLaunchSound2, playerLaunchSound3, playerHitSound1, playerHitSound2, playerHitSound3, playerDeathSound1, playerDeathSound2;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerLaunchSound = Resources.Load<AudioClip>("Sounds/launch_1");
+        playerLaunchSound1 = Resources.Load<AudioClip>("Sounds/launch_1");
+        playerLaunchSound2 = Resources.Load<AudioClip>("Sounds/launch_2");
+        playerLaunchSound3 = Resources.Load<AudioClip>("Sounds/launch_3");
         playerHitSound1 = Resources.Load<AudioClip>("Sounds/impact_1");
         playerHitSound2 = Resources.Load<AudioClip>("Sounds/impact_2");
         playerHitSound3 = Resources.Load<AudioClip>("Sounds/impact_3");
+        playerDeathSound1 = Resources.Load<AudioClip>("Sounds/death_1");
+        playerDeathSound2 = Resources.Load<AudioClip>("Sounds/death_2");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -32,7 +36,13 @@ public class SoundManager : MonoBehaviour
         switch (sound)
         {
             case "launch_1":
-                audioSrc.PlayOneShot(playerLaunchSound);
+                audioSrc.PlayOneShot(playerLaunchSound1);
+                break;
+            case "launch_2":
+                audioSrc.PlayOneShot(playerLaunchSound2);
+                break;
+            case "launch_3":
+                audioSrc.PlayOneShot(playerLaunchSound3);
                 break;
             case "impact_1":
                 audioSrc.PlayOneShot(playerHitSound1);
@@ -43,6 +53,13 @@ public class SoundManager : MonoBehaviour
             case "impact_3":
                 audioSrc.PlayOneShot(playerHitSound3);
                 break;
+            case "death_1":
+                audioSrc.PlayOneShot(playerDeathSound1);
+                break;
+            case "death_2":
+                audioSrc.PlayOneShot(playerDeathSound2);
+                break;
+
         }
     }
 }

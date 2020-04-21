@@ -26,6 +26,14 @@ public class PlayerCharacter : MonoBehaviour
 
     private Animator anim;
 
+    // Triger respawn after death animation
+    public void EndDeathAnimation()
+    {
+        // Triger respawn after death animation
+        character.position = GameInstanceInfo.positionDepart;
+        anim.SetBool("is_dead", false);
+    }
+
     internal void EventCoroutine(float timer, EventEnum typeEvent, Action fctStart, Action fctEnd)
     {
         if (coroutineState.ContainsKey(typeEvent) && coroutineState[typeEvent] == true)
@@ -58,8 +66,12 @@ public class PlayerCharacter : MonoBehaviour
     public void LaunchPlayer(Vector3 dragDistance)
     {
         anim.SetBool("is_launching", true);
+        anim.SetFloat("xInput", dragDistance.x);
+        anim.SetFloat("yInput", dragDistance.y);
 
-        SoundManager.PlaySound("launch_1");
+
+        int rdmSoundLaunch = UnityEngine.Random.Range(1, 4);
+        SoundManager.PlaySound("launch_"+ rdmSoundLaunch);
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 
@@ -75,7 +87,7 @@ public class PlayerCharacter : MonoBehaviour
 
         // rdm sound just for test
         int rdmSound = UnityEngine.Random.Range(1, 4);
-        Debug.Log(rdmSound);
+        int rdmSoundDeath = UnityEngine.Random.Range(1, 3);
         SoundManager.PlaySound("impact_"+ rdmSound);
 
         if (collision.gameObject.tag == "Finish")
@@ -84,10 +96,11 @@ public class PlayerCharacter : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bloc_Kill")
         {
-            
+            anim.SetBool("is_dead", true);
+            SoundManager.PlaySound("death_" + rdmSoundDeath);
+
             print($"Le personnage est mort il à touché le bloc qui tue");
             GameInstanceInfo.nbTry++;
-            character.position = GameInstanceInfo.positionDepart;
         }
         if (collision.gameObject.tag == "Bloc_Slow")
         {
