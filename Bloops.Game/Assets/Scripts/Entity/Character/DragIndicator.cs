@@ -65,7 +65,8 @@ public class DragIndicator : MonoBehaviour
                 lr.enabled = true;
                 // Récupère la position du doigt lors du premier touché de l'écran
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition) + camOffset;
-                
+                Debug.Log("position : " + (cam.ScreenToWorldPoint(Input.mousePosition) + camOffset));
+
                 // Set le premier point d'ancrage à la position du personnage
                 lr.SetPosition(0, character.position);
                 // Utilise les coordonées x y similaires selon l'écran

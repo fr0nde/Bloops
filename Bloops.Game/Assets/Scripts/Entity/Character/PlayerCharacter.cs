@@ -25,7 +25,6 @@ public class PlayerCharacter : MonoBehaviour
     private IEnumerator coroutine;
 
     private StatsManager parentScript;
-    private bool hasCollide = false;
     private int test = 0;
 
     void OnGUI()
@@ -33,6 +32,16 @@ public class PlayerCharacter : MonoBehaviour
         GUI.Label(new Rect(10, 10, 50, 50), test.ToString());
     }
 
+
+    private Animator anim;
+
+    // Triger respawn after death animation
+    public void EndDeathAnimation()
+    {
+        // Triger respawn after death animation
+        character.position = GameInstanceInfo.positionDepart;
+        anim.SetBool("is_dead", false);
+    }
 
     internal void EventCoroutine(float timer, EventEnum typeEvent, Action fctStart, Action fctEnd)
     {
@@ -61,6 +70,7 @@ public class PlayerCharacter : MonoBehaviour
 
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         currentSpeed = speed;
     }
 
@@ -71,6 +81,13 @@ public class PlayerCharacter : MonoBehaviour
             parentScript.OnMoveCharacter();
         }
 
+        anim.SetBool("is_launching", true);
+        anim.SetFloat("xInput", dragDistance.x);
+        anim.SetFloat("yInput", dragDistance.y);
+
+
+        int rdmSoundLaunch = UnityEngine.Random.Range(1, 4);
+        SoundManager.PlaySound("launch_"+ rdmSoundLaunch);
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 
@@ -82,24 +99,38 @@ public class PlayerCharacter : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         character.velocity = Vector2.zero;
+        anim.SetBool("is_launching", false);
+
+        // rdm sound just for test
+        int rdmSound = UnityEngine.Random.Range(1, 4);
+        int rdmSoundDeath = UnityEngine.Random.Range(1, 3);
+        SoundManager.PlaySound("impact_"+ rdmSound);
 
         if (collision.gameObject.tag == "Finish")
         {
             GameInstance.EndLevel();
         }
-        if (collision.gameObject.tag == "BlocKill")
+        if (collision.gameObject.tag == "Bloc_Kill")
         {
+            anim.SetBool("is_dead", true);
+            SoundManager.PlaySound("death_" + rdmSoundDeath);
+
             print($"Le personnage est mort il à touché le bloc qui tue");
             GameInstanceInfo.nbTry++;
         }
         if (collision.gameObject.tag == "Bloc_Slow")
         {
             print($"Le personnage est ralentit");
-            EventCoroutine(5F, EventEnum.SLOW, () => setPlayerSpeed(0.2F, EventEnum.SLOW), () => setPlayerSpeed(1F, EventEnum.SLOW));
+            EventCoroutine(5F, EventEnum.SLOW, () => SetPlayerSpeed(0.2F, EventEnum.SLOW), () => SetPlayerSpeed(1F, EventEnum.SLOW));
+        }
+        if (collision.gameObject.tag == "Bloc_Moving")
+        {
+            print($"Le personnage bouge avec l'obstacle");
+            
         }
     }
 
-    void setPlayerSpeed(float speedRate, EventEnum typeEvent)
+    void SetPlayerSpeed(float speedRate, EventEnum typeEvent)
     {
         float newSpeed = speed * speedRate;
         print($"La vitesse du joueur à été modifier, current: {currentSpeed} => new: {newSpeed}");

@@ -6,17 +6,13 @@ using UnityEngine;
 
 public class InitMap : MonoBehaviour
 {
-/*  
- * Attribut fixe qui ne doivent pas bouger         
- */
-    private float xStart = -8.5f;
-    private float yStart = 3.5f;
-    private float x = 1f;
-    private float y = 1f;
-
+    /*  
+    * Attribut fixe qui ne doivent pas bouger         
+    */
     public GameObject prefab_wall;
     public GameObject prefab_character;
     public BoxCollider2D prefab_finisher;
+    private Camera cam;
 
     public class GameObjectPosition
     {
@@ -41,43 +37,46 @@ public class InitMap : MonoBehaviour
 
 
     void Start()
-    {
+    {        
+        cam = Camera.main;
+
+        // instantiate the bordure
+        map = Utils.LoadJsonMap("bordure.txt");
+        InstantiateWall(map);
+
+        // Instantiate the map
         if (GameSceneInfo.level > 0)
         {
             levelName = $"niveau_{GameSceneInfo.level}.txt";
         }
         map = Utils.LoadJsonMap(levelName);
-        LoadMap();
+        InstantiateWall(map);
+        InstantiateCharacter(map);
+        InstantiatePortal(map);
     }
 
-    private void InstantiateCharacter()
+    private void InstantiateCharacter(Map pMap)
     {
-        int xPos = map.character.pos_x;
-        int yPos = map.character.pos_y;
+        int xPos = pMap.character.pos_x;
+        int yPos = pMap.character.pos_y;
 
-
-        GameObject character = Instantiate(prefab_character, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
-        character.transform.localScale += new Vector3(-0.2f, -0.2f, -0.01f);
-
+        GameObject character = Instantiate(prefab_character, new Vector3(xPos, yPos), Quaternion.identity);
         character.transform.parent = this.transform;
         InstanceReferences.Add(character);
     }
 
-    private void InstantiatePortal()
+    private void InstantiatePortal(Map pMap)
     {
-        int xPos = map.portal.pos_x;
-        int yPos = map.portal.pos_y;
+        int xPos = pMap.portal.pos_x;
+        int yPos = pMap.portal.pos_y;
 
-        Instantiate(prefab_finisher, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
+        Instantiate(prefab_finisher, new Vector3(xPos, yPos), Quaternion.identity);
     }
 
 
-    private void LoadMap()
+    private void InstantiateWall(Map pMap)
     {
-        InstantiateCharacter();
-        InstantiatePortal();
-
-        foreach (Bloc bloc in map.blocs)
+        foreach (Bloc bloc in pMap.blocs)
         {
             int xPos = bloc.pos_x;
             int yPos = bloc.pos_y;
@@ -85,7 +84,8 @@ public class InitMap : MonoBehaviour
             if (bloc.type == Type.MUR)
             {
                 gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
-                InstanceReferences.Add(Instantiate(prefab_wall, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity));
+
+                Instantiate(prefab_wall, new Vector3(xPos, yPos), Quaternion.identity);
             }
         }
     }
