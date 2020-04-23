@@ -37,4 +37,10 @@ public class MainMenu : MonoBehaviour
     {
         AudioListener.volume = slider.value;
     }
+
+    public void ResetProfile()
+    {
+        Player p = new Player();
+        SaveSystem.savePlayer(p);
+    }
 }

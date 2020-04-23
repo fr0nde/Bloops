@@ -9,8 +9,6 @@ public class InitMap : MonoBehaviour
 /*  
  * Attribut fixe qui ne doivent pas bouger         
  */
-    private int columnLength = 17;
-    private int rowLength = 9;
     private float xStart = -8.5f;
     private float yStart = 3.5f;
     private float x = 1f;
@@ -44,7 +42,10 @@ public class InitMap : MonoBehaviour
 
     void Start()
     {
-        levelName = $"niveau_{GameSceneInfo.level}.txt";
+        if (GameSceneInfo.level > 0)
+        {
+            levelName = $"niveau_{GameSceneInfo.level}.txt";
+        }
         map = Utils.LoadJsonMap(levelName);
         LoadMap();
     }
@@ -54,8 +55,11 @@ public class InitMap : MonoBehaviour
         int xPos = map.character.pos_x;
         int yPos = map.character.pos_y;
 
+
         GameObject character = Instantiate(prefab_character, new Vector3(xStart + (x * xPos), yStart + (y * -yPos)), Quaternion.identity);
         character.transform.localScale += new Vector3(-0.2f, -0.2f, -0.01f);
+
+        character.transform.parent = this.transform;
         InstanceReferences.Add(character);
     }
 

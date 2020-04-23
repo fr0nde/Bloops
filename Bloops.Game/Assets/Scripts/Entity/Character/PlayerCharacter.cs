@@ -24,6 +24,16 @@ public class PlayerCharacter : MonoBehaviour
 
     private IEnumerator coroutine;
 
+    private StatsManager parentScript;
+    private bool hasCollide = false;
+    private int test = 0;
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 50, 50), test.ToString());
+    }
+
+
     internal void EventCoroutine(float timer, EventEnum typeEvent, Action fctStart, Action fctEnd)
     {
         if (coroutineState.ContainsKey(typeEvent) && coroutineState[typeEvent] == true)
@@ -47,6 +57,8 @@ public class PlayerCharacter : MonoBehaviour
     
     internal void Start()
     {    
+        parentScript = transform.parent.GetComponent<StatsManager>();
+
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
         currentSpeed = speed;
@@ -54,6 +66,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public void LaunchPlayer(Vector3 dragDistance)
     {
+        if (parentScript != null) {
+            parentScript.OnStartGame();
+            parentScript.OnMoveCharacter();
+        }
+
         // Reset the force
         character.velocity = new Vector2(0f, 0f);
 

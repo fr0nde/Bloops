@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Niveau 3",
   "rules": [],
   "character": {
     "type": "PERSONNAGE",

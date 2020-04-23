@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Niveau 2",
   "rules": [],
   "blocs": [
     {
