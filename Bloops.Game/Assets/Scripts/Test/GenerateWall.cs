@@ -13,7 +13,7 @@ public class GenerateWall : MonoBehaviour
     public GameObject prefab;
     public Camera cam;
     public Text fileText;
-    public string fileName = "template.txt";
+    public string fileName = "bordure";
     private Map map;
 
 
@@ -32,9 +32,7 @@ public class GenerateWall : MonoBehaviour
         }
     }
 
-
     private List<GameObject> InstanceReferences = new List<GameObject>() { };
-
 
     void Start()
     {

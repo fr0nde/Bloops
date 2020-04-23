@@ -1,4 +1,6 @@
 {
+  "name": "bordure",
+  "rules": [],
   "blocs": [
     {
       "pos_x": -9,

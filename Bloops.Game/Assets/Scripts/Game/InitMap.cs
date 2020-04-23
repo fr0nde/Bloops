@@ -9,6 +9,13 @@ public class InitMap : MonoBehaviour
     /*  
     * Attribut fixe qui ne doivent pas bouger         
     */
+
+    /*
+    * Modif flo du 15/04/2020
+    * -9 < x > +8   -----> 18 possibilitées / si contours => 16
+    * -5 < y > +5   -----> 11 possibilitées / si contours => 09   
+    */
+
     public GameObject prefab_wall;
     public GameObject prefab_character;
     public BoxCollider2D prefab_finisher;
@@ -41,7 +48,7 @@ public class InitMap : MonoBehaviour
         cam = Camera.main;
 
         // instantiate the bordure
-        map = Utils.LoadJsonMap("bordure.txt");
+        map = Utils.LoadJsonMap("bordure");
         InstantiateWall(map);
 
         // Instantiate the map

@@ -41,8 +41,16 @@ public class Utils
 {
     public static Map LoadJsonMap(string fileName)
     {
-        string text = System.IO.File.ReadAllText($@"Assets\Resources\Map\{fileName}");
+        string text;
 
+        if(Application.isEditor)
+        {
+            text = System.IO.File.ReadAllText($@"Assets\Resources\Map\{fileName}");
+        } else
+        {
+            TextAsset textAsset = Resources.Load<TextAsset>($@"Map/{fileName}");
+            text = textAsset.text;
+        }
         return JsonUtility.FromJson<Map>(text);
     }
 
