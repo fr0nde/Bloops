@@ -6,20 +6,9 @@ using UnityEngine;
 
 public class InitMap : MonoBehaviour
 {
-    /*  
-    * Attribut fixe qui ne doivent pas bouger         
-    */
-
-    /*
-    * Modif flo du 15/04/2020
-    * -9 < x > +8   -----> 18 possibilitées / si contours => 16
-    * -5 < y > +5   -----> 11 possibilitées / si contours => 09   
-    */
-
     public GameObject prefab_wall;
     public GameObject prefab_character;
     public BoxCollider2D prefab_finisher;
-    private Camera cam;
 
     public class GameObjectPosition
     {
@@ -39,22 +28,16 @@ public class InitMap : MonoBehaviour
      * valeur à set avant le lancement de la scène
      */
 
-    public string levelName = "template.txt";
+    public string levelName = "niveau_1";
     private Map map;
 
 
     void Start()
-    {        
-        cam = Camera.main;
-
-        // instantiate the bordure
-        map = Utils.LoadJsonMap("bordure");
-        InstantiateWall(map);
-
+    {
         // Instantiate the map
         if (GameSceneInfo.level > 0)
         {
-            levelName = $"niveau_{GameSceneInfo.level}.txt";
+            levelName = $"niveau_{GameSceneInfo.level}";
         }
         map = Utils.LoadJsonMap(levelName);
         InstantiateWall(map);

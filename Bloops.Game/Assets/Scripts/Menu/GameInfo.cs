@@ -65,7 +65,7 @@ public class GameInfo : MonoBehaviour
 
         World world = WorldContainer.GetWorldById(level.WorldId);
 
-        string levelName = $"niveau_{GameSceneInfo.level}.txt";
+        string levelName = $"niveau_{GameSceneInfo.level}";
         
         map = Utils.LoadJsonMap(levelName);
         

@@ -45,7 +45,7 @@ public class Utils
 
         if(Application.isEditor)
         {
-            text = System.IO.File.ReadAllText($@"Assets\Resources\Map\{fileName}");
+            text = System.IO.File.ReadAllText($@"Assets\Resources\Map\{fileName}.json");
         } else
         {
             TextAsset textAsset = Resources.Load<TextAsset>($@"Map/{fileName}");
