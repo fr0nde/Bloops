@@ -8,9 +8,10 @@
     "portal": {
         "type": "PORTAIL",
         "pos_x": 6,
-        "pos_y": -4
+        "pos_y": -3
     },
     "blocs": [
+        {"pos_x":-8,"pos_y":4,"type":"wall"},{"pos_x":-7,"pos_y":4,"type":"wall"},{"pos_x":-6,"pos_y":4,"type":"wall"},{"pos_x":-5,"pos_y":4,"type":"wall"},{"pos_x":-4,"pos_y":4,"type":"wall"},{"pos_x":-3,"pos_y":4,"type":"wall"},{"pos_x":-2,"pos_y":4,"type":"wall"},{"pos_x":-1,"pos_y":4,"type":"wall"},{"pos_x":0,"pos_y":4,"type":"wall"},{"pos_x":1,"pos_y":4,"type":"wall"},{"pos_x":2,"pos_y":4,"type":"wall"},{"pos_x":3,"pos_y":4,"type":"wall"},{"pos_x":4,"pos_y":4,"type":"wall"},{"pos_x":5,"pos_y":4,"type":"wall"},{"pos_x":6,"pos_y":4,"type":"wall"},{"pos_x":7,"pos_y":4,"type":"wall"},{"pos_x":-8,"pos_y":3,"type":"wall"},{"pos_x":7,"pos_y":3,"type":"wall"},{"pos_x":-8,"pos_y":2,"type":"wall"},{"pos_x":7,"pos_y":2,"type":"wall"},{"pos_x":-8,"pos_y":1,"type":"wall"},{"pos_x":7,"pos_y":1,"type":"wall"},{"pos_x":-8,"pos_y":0,"type":"wall"},{"pos_x":7,"pos_y":0,"type":"wall"},{"pos_x":-8,"pos_y":-1,"type":"wall"},{"pos_x":7,"pos_y":-1,"type":"wall"},{"pos_x":-8,"pos_y":-2,"type":"wall"},{"pos_x":7,"pos_y":-2,"type":"wall"},{"pos_x":-8,"pos_y":-3,"type":"wall"},{"pos_x":7,"pos_y":-3,"type":"wall"},{"pos_x":-8,"pos_y":-4,"type":"wall"},{"pos_x":-7,"pos_y":-4,"type":"wall"},{"pos_x":-6,"pos_y":-4,"type":"wall"},{"pos_x":-5,"pos_y":-4,"type":"wall"},{"pos_x":-4,"pos_y":-4,"type":"wall"},{"pos_x":-3,"pos_y":-4,"type":"wall"},{"pos_x":-2,"pos_y":-4,"type":"wall"},{"pos_x":-1,"pos_y":-4,"type":"wall"},{"pos_x":0,"pos_y":-4,"type":"wall"},{"pos_x":1,"pos_y":-4,"type":"wall"},{"pos_x":2,"pos_y":-4,"type":"wall"},{"pos_x":3,"pos_y":-4,"type":"wall"},{"pos_x":4,"pos_y":-4,"type":"wall"},{"pos_x":5,"pos_y":-4,"type":"wall"},{"pos_x":6,"pos_y":-4,"type":"wall"},{"pos_x":7,"pos_y":-4,"type":"wall"},
         {
             "pos_x": 0,
             "pos_y": 4,
