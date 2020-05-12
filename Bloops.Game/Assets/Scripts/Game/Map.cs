@@ -24,6 +24,7 @@ public class Bloc
 public class Map
 {
     public string name;
+    public string world;
     public List<string> rules;
     public List<Bloc> blocs;
     public Bloc character;
@@ -32,6 +33,7 @@ public class Map
     public Map()
     {
         this.name = "";
+        this.world = "";
         this.rules = new List<string>();
         this.blocs = new List<Bloc>();
     }

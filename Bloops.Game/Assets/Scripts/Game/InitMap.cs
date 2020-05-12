@@ -37,7 +37,8 @@ public class InitMap : MonoBehaviour
 
     void Start()
     {
-        sprite = Resources.Load<Sprite>("Wall/mur-m1");
+        //Instantiate the background
+        //GameObject background = Instantiate(new GameObject(), new Vector3(0, 0), Quaternion.identity);
 
         // Instantiate the map
         if (GameSceneInfo.level > 0)
@@ -45,6 +46,8 @@ public class InitMap : MonoBehaviour
             levelName = $"niveau_{GameSceneInfo.level}";
         }
         map = Utils.LoadJsonMap(levelName);
+        // Récupère la bonne texture de bloc pour le monde
+        sprite = Resources.Load<Sprite>($"Wall/mur-m{map.world}");
 
         InstantiateWall(map);
         InstantiateCharacter(map);

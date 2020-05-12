@@ -1,5 +1,6 @@
 {
   "name": "Niveau",
+  "world": 1,
   "character": {
     "type": "PERSONNAGE",
     "pos_x": -7,
