@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class InitMap : MonoBehaviour
 {
+    // Variable a changer pour modifier le sprite du mur
+    private Sprite sprite;
+
     public GameObject prefab_wall;
     public GameObject prefab_character;
     public BoxCollider2D prefab_finisher;
@@ -34,12 +37,15 @@ public class InitMap : MonoBehaviour
 
     void Start()
     {
+        sprite = Resources.Load<Sprite>("Wall/mur-m1");
+
         // Instantiate the map
         if (GameSceneInfo.level > 0)
         {
             levelName = $"niveau_{GameSceneInfo.level}";
         }
         map = Utils.LoadJsonMap(levelName);
+
         InstantiateWall(map);
         InstantiateCharacter(map);
         InstantiatePortal(map);
@@ -74,8 +80,10 @@ public class InitMap : MonoBehaviour
             if (bloc.type == Type.MUR)
             {
                 gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
+                GameObject newWall = Instantiate(prefab_wall, new Vector3(xPos, yPos), Quaternion.identity);
 
-                Instantiate(prefab_wall, new Vector3(xPos, yPos), Quaternion.identity);
+                Wall wall = newWall.GetComponent<Wall>();
+                wall.ChangeTexture(sprite);
             }
         }
     }

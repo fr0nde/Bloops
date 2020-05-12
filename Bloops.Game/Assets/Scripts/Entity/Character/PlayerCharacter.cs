@@ -108,7 +108,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish")
         {
-            GameInstance.EndLevel();
+            SceneManager.LoadScene("EndLevel");
         }
         if (collision.gameObject.tag == "Bloc_Kill")
         {

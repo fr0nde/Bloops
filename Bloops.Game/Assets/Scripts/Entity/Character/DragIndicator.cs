@@ -121,16 +121,17 @@ public class DragIndicator : MonoBehaviour
                 }
                 
             }
-        }
-        // Quand on relache le doigt de l'écran
-        if (Input.GetMouseButtonUp(0))
-        {
-            // Fonction LaunchPlayer dans le script PlayerCharacter
-            PlayerCharacter.LaunchPlayer(totalDistance);
+            // Quand on relache le doigt de l'écran
+            if (Input.GetMouseButtonUp(0))
+            {
+                // Fonction LaunchPlayer dans le script PlayerCharacter
+                PlayerCharacter.LaunchPlayer(totalDistance);
 
-            // Désactive le linerenderer
-            lr.enabled = false;
+                // Désactive le linerenderer
+                lr.enabled = false;
+            }
         }
+        
     }
     Vector3 calculPos(Vector3 deb, Vector3 fin, float distance)
     {

@@ -6,15 +6,16 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     private BoxCollider2D bc2d;
-    private SpriteRenderer spriteR;
-
+    private SpriteRenderer spriteRenderer;
+    private SpriteMask spriteMask;
     public GameObject wallPrefab;
     public Sprite SplashSprite;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         bc2d = GetComponent<BoxCollider2D>();
-        spriteR = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteMask = gameObject.GetComponent<SpriteMask>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -25,14 +26,12 @@ public class Wall : MonoBehaviour
         AddSplashSprite(hit3, colliderSize);
     }
 
-    void LoadTextureHit(Sprite sp)
+    public void ChangeTexture(Sprite texture)
     {
-        // Faire le changement de skin du mur pour avoir celui qui contient les traces de peinture
-        //Sprite sp = Resources.Load("path") as Sprite;
-
-        spriteR.sprite = sp;
+        // Affecte la texture au wall
+        spriteRenderer.sprite = texture;
+        spriteMask.sprite = texture;
     }
-
 
     void AddSplashSprite(Vector3 hitPos, Vector3 colliderScale)
     {
