@@ -81,6 +81,28 @@ public class Player
         }
         return false;
     }
+
+    public void unlockLevels()
+    {
+        List<LevelData> unlockLevels = new List<LevelData>(50);
+
+        int i = 0;
+        foreach (LevelData unlockLevel in unlockLevels)
+        {
+            i++;
+            unlockLevel.level = i.ToString();
+            unlockLevel.stars = 5;
+        }
+
+        this.levels = unlockLevels;
+        SaveSystem.savePlayer(this);
+    }
+
+    public void resetLevels()
+    {
+        this.levels = new List<LevelData>();
+        SaveSystem.savePlayer(this);
+    }
 }
 
 

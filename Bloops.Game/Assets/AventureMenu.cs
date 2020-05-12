@@ -35,7 +35,7 @@ public class AventureMenu : MonoBehaviour
         buttons.Sort(delegate (GameObject x, GameObject y)
         {
             int levelX = Int32.Parse(x.GetComponentInChildren<Text>().text);
-            int levelY= Int32.Parse(x.GetComponentInChildren<Text>().text);
+            int levelY = Int32.Parse(x.GetComponentInChildren<Text>().text);
             if (levelX == levelY) return 0;
             if (levelX > levelY) return 1;
             return -1;
@@ -52,13 +52,14 @@ public class AventureMenu : MonoBehaviour
 
         isAvailable = p.levelIsAvailable(text.text);
 
-        if (isAvailable)
-        {
+        // pour la démo on débloque tout, à revoir plus tard
+        /*if (isAvailable)
+        {*/
             var level = p.getLevel(text.text);
             Image image = button.GetComponentInChildren<Image>();
             loadLevelSkin(image, level);
             button.GetComponent<Button>().interactable = true;
-        }
+        /*}*/
     }
 
     void updateButtons()
@@ -89,12 +90,24 @@ public class AventureMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        updateButtons();
     }
 
     public void MenuGame()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void resetLevels()
+    {
+        PlayerManager.getPlayer().resetLevels();
+        //updateButtons();
+    }
+
+    public void unlockLevels()
+    {
+        PlayerManager.getPlayer().unlockLevels();
+        //updateButtons();
     }
 }
 
