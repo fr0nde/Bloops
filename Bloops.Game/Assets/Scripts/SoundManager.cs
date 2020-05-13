@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    public static AudioClip playerLaunchSound1, playerLaunchSound2, playerLaunchSound3, playerHitSound1, playerHitSound2, playerHitSound3, playerDeathSound1, playerDeathSound2;
+    public static AudioClip playerLaunchSound1, playerLaunchSound2, playerLaunchSound3, playerHitSound1, playerHitSound2, playerHitSound3, playerDeathSound1, playerDeathSound2, playerButtonSound1, playerButtonSound2;
     static AudioSource audioSrc;
 
     // Start is called before the first frame update
@@ -19,6 +19,8 @@ public class SoundManager : MonoBehaviour
         playerHitSound3 = Resources.Load<AudioClip>("Sounds/impact_3");
         playerDeathSound1 = Resources.Load<AudioClip>("Sounds/death_1");
         playerDeathSound2 = Resources.Load<AudioClip>("Sounds/death_2");
+        playerButtonSound1 = Resources.Load<AudioClip>("Sounds/button_1");
+        playerButtonSound2 = Resources.Load<AudioClip>("Sounds/button_2");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -59,7 +61,12 @@ public class SoundManager : MonoBehaviour
             case "death_2":
                 audioSrc.PlayOneShot(playerDeathSound2);
                 break;
-
+            case "button_1":
+                audioSrc.PlayOneShot(playerButtonSound1);
+                break;
+            case "button_2":
+                audioSrc.PlayOneShot(playerButtonSound2);
+                break;
         }
     }
 }
