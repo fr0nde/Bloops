@@ -46,6 +46,7 @@ public class InitMap : MonoBehaviour
         }
         map = Utils.LoadJsonMap(levelName);
 
+        GameInstanceInfo.init();
         InstantiateWall(map);
         InstantiateCharacter(map);
         InstantiatePortal(map);
