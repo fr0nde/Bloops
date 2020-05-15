@@ -11,8 +11,9 @@ public enum EventEnum
 
 public class PlayerCharacter : MonoBehaviour
 {
-
     public float speed;//Floating point variable to store the player's movement speed.
+
+    private Animator anim;
 
     private float currentSpeed;
 
@@ -31,9 +32,6 @@ public class PlayerCharacter : MonoBehaviour
     {
         GUI.Label(new Rect(10, 10, 50, 50), test.ToString());
     }
-
-
-    private Animator anim;
 
     // Triger respawn after death animation
     public void EndDeathAnimation()
@@ -63,14 +61,14 @@ public class PlayerCharacter : MonoBehaviour
         callback();
         coroutineState[typeEvent] = false;
     }
-    
+
     internal void Start()
-    {    
+    {
+        anim = GetComponent<Animator>();
         parentScript = transform.parent.GetComponent<StatsManager>();
 
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         character = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         currentSpeed = speed;
     }
 
@@ -85,7 +83,6 @@ public class PlayerCharacter : MonoBehaviour
         anim.SetFloat("xInput", dragDistance.x);
         anim.SetFloat("yInput", dragDistance.y);
 
-
         int rdmSoundLaunch = UnityEngine.Random.Range(1, 4);
         SoundManager.PlaySound("launch_"+ rdmSoundLaunch);
         // Reset the force
@@ -96,7 +93,7 @@ public class PlayerCharacter : MonoBehaviour
         GameInstanceInfo.nbBounce++;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator OnCollisionEnter2D(Collision2D collision)
     {
         character.velocity = Vector2.zero;
         anim.SetBool("is_launching", false);
@@ -109,6 +106,7 @@ public class PlayerCharacter : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             SceneManager.LoadScene("EndLevel");
+            yield return null;
         }
         if (collision.gameObject.tag == "Bloc_Kill")
         {
@@ -117,17 +115,27 @@ public class PlayerCharacter : MonoBehaviour
 
             print($"Le personnage est mort il à touché le bloc qui tue");
             GameInstanceInfo.nbTry++;
+            yield return null;
         }
         if (collision.gameObject.tag == "Bloc_Slow")
         {
             print($"Le personnage est ralentit");
             EventCoroutine(5F, EventEnum.SLOW, () => SetPlayerSpeed(0.2F, EventEnum.SLOW), () => SetPlayerSpeed(1F, EventEnum.SLOW));
+            yield return null;
         }
-        if (collision.gameObject.tag == "Bloc_Moving")
-        {
-            print($"Le personnage bouge avec l'obstacle");
-            
-        }
+
+        Vector3 coolideWorldPos = collision.contacts[0].point;
+
+        // Calculate Angle Between the collision point and the player
+        Vector3 dir = coolideWorldPos - transform.position;
+        // We then get the opposite (-Vector3) and normalize it
+        dir = -dir.normalized;
+        // And finally we add force in the direction of dir and multiply it by force. 
+        // This will push back the player
+        character.AddForce(dir * 30);
+        yield return new WaitForSeconds(0.1f);
+        character.velocity = Vector2.zero;
+        yield return null;
     }
 
     void SetPlayerSpeed(float speedRate, EventEnum typeEvent)
