@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]
-public enum Type { MUR, PERSONNAGE, PORTAIL }
-
 [System.Serializable]
 public class Bloc
 {
-    public Type type;
+    //MUR, PERSONNAGE, PORTAIL, PIEGE
+    public string type;
+
     public int pos_x;
     public int pos_y;
+    public int rotation = 0;
 
-    public Bloc(Type type, int pos_x, int pos_y)
+    public Bloc(string type, int pos_x, int pos_y, int rotation)
     {
         this.type = type;
         this.pos_x = pos_x;
         this.pos_y = pos_y;
+        this.rotation = rotation;
     } 
 }
 

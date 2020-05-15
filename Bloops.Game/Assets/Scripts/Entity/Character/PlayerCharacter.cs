@@ -132,7 +132,7 @@ public class PlayerCharacter : MonoBehaviour
         dir = -dir.normalized;
         // And finally we add force in the direction of dir and multiply it by force. 
         // This will push back the player
-        character.AddForce(dir * 30);
+        character.AddForce(dir * 40);
         yield return new WaitForSeconds(0.1f);
         character.velocity = Vector2.zero;
         yield return null;

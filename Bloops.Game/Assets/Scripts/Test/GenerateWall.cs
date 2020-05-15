@@ -45,7 +45,7 @@ public class GenerateWall : MonoBehaviour
         map = new Map();
         foreach (GameObjectPosition pos in gameObjectPositions)
         {
-            map.blocs.Add(new Bloc(Type.MUR, pos.x, pos.y));
+            map.blocs.Add(new Bloc("MUR", pos.x, pos.y, 0));
         }
         Utils.SaveJsonMap(fileText.text, map);
     }

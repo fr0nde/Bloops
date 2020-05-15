@@ -10,6 +10,7 @@ public class InitMap : MonoBehaviour
     private Sprite textureSprite, backgroundSprite;
 
     public GameObject prefab_wall;
+    public GameObject prefab_trap;
     public GameObject prefab_character;
     public GameObject background;
     public BoxCollider2D prefab_finisher;
@@ -32,7 +33,7 @@ public class InitMap : MonoBehaviour
      * valeur à set avant le lancement de la scène
      */
 
-    public string levelName = "niveau_1";
+    public string levelName = "niveau_6";
     private Map map;
 
 
@@ -68,6 +69,7 @@ public class InitMap : MonoBehaviour
         GameObject character = Instantiate(prefab_character, new Vector3(xPos, yPos), Quaternion.identity);
         character.transform.parent = this.transform;
         InstanceReferences.Add(character);
+        GameInstanceInfo.positionDepart = new Vector2(xPos, yPos);
     }
 
     private void InstantiatePortal(Map pMap)
@@ -78,7 +80,6 @@ public class InitMap : MonoBehaviour
         Instantiate(prefab_finisher, new Vector3(xPos, yPos), Quaternion.identity);
     }
 
-
     private void InstantiateWall(Map pMap)
     {
         foreach (Bloc bloc in pMap.blocs)
@@ -86,13 +87,19 @@ public class InitMap : MonoBehaviour
             int xPos = bloc.pos_x;
             int yPos = bloc.pos_y;
 
-            if (bloc.type == Type.MUR)
+            if (bloc.type == "MUR")
             {
                 gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
                 GameObject newWall = Instantiate(prefab_wall, new Vector3(xPos, yPos), Quaternion.identity);
 
                 Wall wall = newWall.GetComponent<Wall>();
                 wall.ChangeTexture(textureSprite);
+            }
+            if (bloc.type == "PIEGE")
+            {
+                gameObjectPositions.Add(new GameObjectPosition(xPos, yPos));
+                GameObject newSpike = Instantiate(prefab_trap, new Vector3(xPos, yPos), Quaternion.identity);
+                newSpike.transform.Rotate(0, 0, bloc.rotation);
             }
         }
     }
