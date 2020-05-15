@@ -50,10 +50,6 @@ public class cameraScript : MonoBehaviour
 
 
         float screenRatio = (float)Screen.width / (float)Screen.height;
-        Debug.Log("screenWidth : " + (float)Screen.width);
-        Debug.Log("screenHeight : " + (float)Screen.height);
-        Debug.Log("screenRatio : " + screenRatio);
-        Debug.Log("camera ortho size : "+ Camera.main.orthographicSize);
 
     }
 }

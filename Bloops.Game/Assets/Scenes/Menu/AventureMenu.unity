@@ -240,7 +240,28 @@ PrefabInstance:
     - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
         type: 3}
       propertyPath: m_Text
-      value: "Plaine enchant\xE9"
+      value: "For\xEAt magique"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ea18b961039d2a646b8ef8d9304100fc,
+        type: 3}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5955121556976041445, guid: b825942861949314a8a81e3d81508a97,
         type: 3}
@@ -646,6 +667,7 @@ GameObject:
   - component: {fileID: 501927481}
   - component: {fileID: 501927480}
   - component: {fileID: 501927479}
+  - component: {fileID: 501927482}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -763,6 +785,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501927477}
   m_CullTransparentMesh: 0
+--- !u!114 &501927482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501927477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed507bc1563f854a97e362a1d78d5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 761636d6d99cad843b223fd24c5e2ecd, type: 3}
 --- !u!224 &588594014 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3510720282436182018, guid: b825942861949314a8a81e3d81508a97,
@@ -902,6 +937,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "Plaine enchant\xE9"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ea18b961039d2a646b8ef8d9304100fc,
+        type: 3}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5955121556976041445, guid: b825942861949314a8a81e3d81508a97,
         type: 3}
@@ -1240,8 +1296,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -292.85504, y: 230.98828, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1863734450}
+  m_Children: []
   m_Father: {fileID: 1279363373}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1465,6 +1520,7 @@ RectTransform:
   - {fileID: 799598611}
   - {fileID: 501927478}
   - {fileID: 1594248665}
+  - {fileID: 1863734450}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1900,6 +1956,7 @@ GameObject:
   - component: {fileID: 1863734453}
   - component: {fileID: 1863734452}
   - component: {fileID: 1863734451}
+  - component: {fileID: 1863734454}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1918,12 +1975,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 799598611}
-  m_RootOrder: 0
+  m_Father: {fileID: 1279363373}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -571.1449, y: 225.01172}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 96.00006, y: -84}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1863734451
@@ -2016,6 +2073,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863734449}
   m_CullTransparentMesh: 0
+--- !u!114 &1863734454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863734449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed507bc1563f854a97e362a1d78d5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 6b78aab3378e5914f8df9e7070be9066, type: 3}
 --- !u!1001 &1885873868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2136,7 +2206,28 @@ PrefabInstance:
     - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
         type: 3}
       propertyPath: m_Text
-      value: "Plaine enchant\xE9"
+      value: "D\xE9sert aride"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: ea18b961039d2a646b8ef8d9304100fc,
+        type: 3}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5955121556976041445, guid: b825942861949314a8a81e3d81508a97,
         type: 3}

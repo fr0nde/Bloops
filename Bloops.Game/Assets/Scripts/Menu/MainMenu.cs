@@ -13,8 +13,6 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(AudioListener.volume);
-
         if (slider)
         {
             slider.value = AudioListener.volume;

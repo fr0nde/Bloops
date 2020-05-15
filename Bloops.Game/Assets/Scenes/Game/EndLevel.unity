@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 961495164}
   - component: {fileID: 961495163}
   - component: {fileID: 961495162}
+  - component: {fileID: 961495165}
   m_Layer: 5
   m_Name: btnFermer
   m_TagString: Untagged
@@ -609,6 +610,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961495160}
   m_CullTransparentMesh: 0
+--- !u!114 &961495165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961495160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed507bc1563f854a97e362a1d78d5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 6b78aab3378e5914f8df9e7070be9066, type: 3}
 --- !u!1 &1299190341
 GameObject:
   m_ObjectHideFlags: 0
