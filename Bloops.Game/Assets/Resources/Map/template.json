@@ -1,6 +1,7 @@
 {
   "name": "Niveau 2",
   "rules": [],
+  "world": 1,
   "character": {
     "type": "PERSONNAGE",
     "pos_x": 1,

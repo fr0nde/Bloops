@@ -62,7 +62,6 @@ public class InitMap : MonoBehaviour
     {
         int xPos = pMap.character.pos_x;
         int yPos = pMap.character.pos_y;
-
         GameObject character = Instantiate(prefab_character, new Vector3(xPos, yPos), Quaternion.identity);
         character.transform.parent = this.transform;
         InstanceReferences.Add(character);
