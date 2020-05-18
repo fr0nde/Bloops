@@ -13,10 +13,21 @@
     },
   "blocs": [
     {
+      "pos_x": -5,
+      "pos_y": 0,
+      "rotation": 180,
+      "type": "PIEGE"
+    },
+    {
       "pos_x": -1,
       "pos_y": 0,
       "rotation": 270,
       "type": "PIEGE"
+    },
+    {
+      "pos_x": -3,
+      "pos_y": 1,
+      "type": "MUR"
     },
     {
       "pos_x": -5,
