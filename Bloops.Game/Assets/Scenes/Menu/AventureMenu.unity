@@ -936,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
         type: 3}
       propertyPath: m_Text
-      value: "Plaine enchant\xE9"
+      value: "Plaine enchant\xE9e"
       objectReference: {fileID: 0}
     - target: {fileID: 3855909450583551210, guid: b825942861949314a8a81e3d81508a97,
         type: 3}

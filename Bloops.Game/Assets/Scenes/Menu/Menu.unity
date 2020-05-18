@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.187}
   m_AnchorMax: {x: 0.5, y: 0.187}
-  m_AnchoredPosition: {x: 14.400169, y: 0.000002861}
-  m_SizeDelta: {x: 443.2, y: 267.8}
+  m_AnchoredPosition: {x: 23.35, y: 0.0000030994}
+  m_SizeDelta: {x: 620.6, y: 320.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &48606118
 MonoBehaviour:
@@ -740,7 +740,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Volume principale
+  m_Text: Volume principal
 --- !u!222 &594162354
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1155,8 +1155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -12}
-  m_SizeDelta: {x: 280.7, y: 108.6}
+  m_AnchoredPosition: {x: -0.000048637, y: -15}
+  m_SizeDelta: {x: 342, y: 108.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239521281
 MonoBehaviour:
@@ -1189,7 +1189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESET PROFILE
+  m_Text: "R\xE9initialiser le profil"
 --- !u!222 &1239521282
 CanvasRenderer:
   m_ObjectHideFlags: 0
