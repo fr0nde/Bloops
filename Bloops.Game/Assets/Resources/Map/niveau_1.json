@@ -1,6 +1,14 @@
 {
     "name": "Niveau 1",
     "world": 1,
+  "rules": [
+    "Objectif : atteindre la sortie !",
+    "Moins de 20 secondes : 1 point",
+    "Moins de 5 secondes : 2 points",
+    "Moins de 4 rebonds : 1 point",
+    "Moins de 3 rebonds : 2 points",
+    "0 mort : 1 point"
+  ],
     "character": {
         "type": "PERSONNAGE",
         "pos_x": -7,

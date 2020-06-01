@@ -1,361 +1,369 @@
 {
-    "name": "Niveau 4",
-    "world": 1,
-    "character": {
-        "type": "PERSONNAGE",
-        "pos_x": -7,
-        "pos_y": -3
+  "name": "Niveau 4",
+  "world": 1,
+  "rules": [
+    "Objectif : atteindre la sortie !",
+    "Moins de 30 secondes : 1 point",
+    "Moins de 10 secondes : 2 points",
+    "Moins de 5 rebonds : 1 point",
+    "Moins de 3 rebonds : 2 points",
+    "0 mort : 1 point"
+  ],
+  "character": {
+    "type": "PERSONNAGE",
+    "pos_x": -7,
+    "pos_y": -3
+  },
+  "portal": {
+    "type": "PORTAIL",
+    "pos_x": 7,
+    "pos_y": -3
+  },
+  "blocs": [
+    {
+      "pos_x": -8,
+      "pos_y": 4,
+      "type": "MUR"
     },
-    "portal": {
-        "type": "PORTAIL",
-        "pos_x": 7,
-        "pos_y": -3
+    {
+      "pos_x": -7,
+      "pos_y": 4,
+      "type": "MUR"
     },
-    "blocs": [
-        {
-            "pos_x": -8,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -7,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -6,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -5,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -4,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -2,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -1,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 0,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 1,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 2,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 3,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 4,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 5,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 6,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 7,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": 4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": 3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 3,
-            "pos_y": 3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": 3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": 2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -4,
-            "pos_y": 2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 4,
-            "pos_y": 2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": 2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -5,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -1,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 0,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 1,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 5,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": 1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -6,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -2,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 2,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 6,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": 0,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -7,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -3,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 3,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 7,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": -1,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": -2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -4,
-            "pos_y": -2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 4,
-            "pos_y": -2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": -2,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": -3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -5,
-            "pos_y": -3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 5,
-            "pos_y": -3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": -3,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -8,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -7,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -6,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -5,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -4,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -3,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -2,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": -1,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 0,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 1,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 2,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 3,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 4,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 5,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 6,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 7,
-            "pos_y": -4,
-            "type": "MUR"
-        },
-        {
-            "pos_x": 8,
-            "pos_y": -4,
-            "type": "MUR"
-        }
-    ]
+    {
+      "pos_x": -6,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -5,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -4,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -3,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -2,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -1,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 0,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 1,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 2,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 3,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 4,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 5,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 6,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 7,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": 4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": 3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -3,
+      "pos_y": 3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 3,
+      "pos_y": 3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": 3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": 2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -4,
+      "pos_y": 2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 4,
+      "pos_y": 2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": 2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -5,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -1,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 0,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 1,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 5,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": 1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -6,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -2,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 2,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 6,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": 0,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -7,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -3,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 3,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 7,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": -1,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": -2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -4,
+      "pos_y": -2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 4,
+      "pos_y": -2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": -2,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": -3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -5,
+      "pos_y": -3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 5,
+      "pos_y": -3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": -3,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -8,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -7,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -6,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -5,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -4,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -3,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -2,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": -1,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 0,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 1,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 2,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 3,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 4,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 5,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 6,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 7,
+      "pos_y": -4,
+      "type": "MUR"
+    },
+    {
+      "pos_x": 8,
+      "pos_y": -4,
+      "type": "MUR"
+    }
+  ]
 }

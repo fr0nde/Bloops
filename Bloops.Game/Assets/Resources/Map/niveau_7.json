@@ -1,16 +1,24 @@
 {
-    "name": "Niveau 7",
-    "world": 1,
-    "character": {
-        "type": "PERSONNAGE",
-        "pos_x": -7,
-        "pos_y": -3
-    },
-    "portal": {
-        "type": "PORTAIL",
-        "pos_x": 5,
-        "pos_y": -1
-    },
+  "name": "Niveau 7",
+  "world": 1,
+  "rules": [
+    "Objectif : atteindre la sortie !",
+    "Moins de 30 secondes : 1 point",
+    "Moins de 15 secondes : 2 points",
+    "Moins de 10 rebonds : 1 point",
+    "Moins de 7 rebonds : 2 points",
+    "0 mort : 1 point"
+  ],
+  "character": {
+    "type": "PERSONNAGE",
+    "pos_x": -7,
+    "pos_y": -3
+  },
+  "portal": {
+    "type": "PORTAIL",
+    "pos_x": 5,
+    "pos_y": -1
+  },
   "blocs": [
     {
       "pos_x": -5,
