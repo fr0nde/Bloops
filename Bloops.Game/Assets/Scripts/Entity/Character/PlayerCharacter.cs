@@ -26,12 +26,6 @@ public class PlayerCharacter : MonoBehaviour
     private IEnumerator coroutine;
 
     private StatsManager parentScript;
-    private int test = 0;
-
-    void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 50, 50), test.ToString());
-    }
 
     // Triger respawn after death animation
     public void EndDeathAnimation()
