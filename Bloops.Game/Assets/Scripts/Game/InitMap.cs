@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class InitMap : MonoBehaviour
 {
@@ -102,5 +102,10 @@ public class InitMap : MonoBehaviour
                 newSpike.transform.Rotate(0, 0, bloc.rotation);
             }
         }
+    }
+
+    public void loadAventureScene()
+    {
+        SceneManager.LoadScene("AventureMenu");
     }
 }
