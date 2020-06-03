@@ -1,6 +1,14 @@
 {
     "name": "Niveau 21",
-    "world": 2,
+    "world": 3,
+    "rules": [
+        "Objectif : atteindre la sortie !",
+        "Moins de 40 secondes : 1 point",
+        "Moins de 30 secondes : 2 points",
+        "Moins de 20 secondes : 3 point",
+        "Moins de 8 rebonds : 1 points",
+        "0 mort : 1 point"
+    ],
     "character": {
         "type": "PERSONNAGE",
         "pos_x": -6,
