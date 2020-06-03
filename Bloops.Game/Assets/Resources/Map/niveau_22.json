@@ -1,14 +1,14 @@
 {
-    "name": "Niveau 11",
+    "name": "Niveau 22",
     "world": 2,
     "character": {
         "type": "PERSONNAGE",
-        "pos_x": -6,
-        "pos_y": 3
+        "pos_x": -2,
+        "pos_y": 0
     },
     "portal": {
         "type": "PORTAIL",
-        "pos_x": 7,
+        "pos_x": 2,
         "pos_y": 0
     },
     "blocs": [
@@ -121,54 +121,6 @@
             "rotation": 0
         },
         {
-            "pos_x": -7,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": -2,
-            "pos_y": 3,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 2,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 3,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 4,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 6,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 7,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
             "pos_x": 8,
             "pos_y": 3,
             "type": "MUR",
@@ -179,42 +131,6 @@
             "pos_y": 2,
             "type": "MUR",
             "rotation": 0
-        },
-        {
-            "pos_x": -7,
-            "pos_y": 2,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 2,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": -2,
-            "pos_y": 2,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": -1,
-            "pos_y": 2,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 0,
-            "pos_y": 2,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 7,
-            "pos_y": 2,
-            "type": "PIEGE",
-            "rotation": 90
         },
         {
             "pos_x": 8,
@@ -229,60 +145,6 @@
             "rotation": 0
         },
         {
-            "pos_x": -7,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -4,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": -2,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 0,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 1,
-            "pos_y": 1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 4,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": 5,
-            "pos_y": 1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 7,
-            "pos_y": 1,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
             "pos_x": 8,
             "pos_y": 1,
             "type": "MUR",
@@ -295,36 +157,6 @@
             "rotation": 0
         },
         {
-            "pos_x": -7,
-            "pos_y": 0,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -3,
-            "pos_y": 0,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 1,
-            "pos_y": 0,
-            "type": "PIEGE",
-            "rotation": 180
-        },
-        {
-            "pos_x": 4,
-            "pos_y": 0,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": 5,
-            "pos_y": 0,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
             "pos_x": 8,
             "pos_y": 0,
             "type": "MUR",
@@ -332,36 +164,6 @@
         },
         {
             "pos_x": -8,
-            "pos_y": -1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": -7,
-            "pos_y": -1,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": 4,
-            "pos_y": -1,
-            "type": "PIEGE",
-            "rotation": 90
-        },
-        {
-            "pos_x": 5,
-            "pos_y": -1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 6,
-            "pos_y": -1,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 7,
             "pos_y": -1,
             "type": "MUR",
             "rotation": 0
@@ -379,18 +181,6 @@
             "rotation": 0
         },
         {
-            "pos_x": -7,
-            "pos_y": -2,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -4,
-            "pos_y": -2,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
             "pos_x": 8,
             "pos_y": -2,
             "type": "MUR",
@@ -400,60 +190,6 @@
             "pos_x": -8,
             "pos_y": -3,
             "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": -7,
-            "pos_y": 3,
-            "type": "PIEGE",
-            "rotation": -90
-        },
-        {
-            "pos_x": -6,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": -5,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": -4,
-            "pos_y": -3,
-            "type": "MUR",
-            "rotation": 0
-        },
-        {
-            "pos_x": 4,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": 0,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": 1,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": 2,
-            "pos_y": -3,
-            "type": "PIEGE",
-            "rotation": 0
-        },
-        {
-            "pos_x": 1,
-            "pos_y": -3,
-            "type": "PIEGE",
             "rotation": 0
         },
         {
