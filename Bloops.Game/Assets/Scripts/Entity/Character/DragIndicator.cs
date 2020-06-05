@@ -123,9 +123,11 @@ public class DragIndicator : MonoBehaviour
             // Quand on relache le doigt de l'écran
             if (Input.GetMouseButtonUp(0))
             {
-                // Fonction LaunchPlayer dans le script PlayerCharacter
-                PlayerCharacter.LaunchPlayer(totalDistance);
-
+                if (totalDistance !== Vector3.zero)
+                {
+                    // Fonction LaunchPlayer dans le script PlayerCharacter
+                    PlayerCharacter.LaunchPlayer(totalDistance);
+                }
                 // Désactive le linerenderer
                 lr.enabled = false;
             }
