@@ -1,10 +1,10 @@
 <template>
   <header>
     <div ref="headerBackgroundImages" class="header-background">
-      <img class="visible" src="assets/header.png" />
-      <img src="https://files.facepunch.com/s/fd9e3b8c3b66.jpg" />
-      <img src="https://files.facepunch.com/s/57140e930812.jpg" />
-      <img src="https://files.facepunch.com/s/ff7f56e2867a.jpg" />
+      <img class="visible" src="assets/Accueil.png" />
+      <img class="visible" src="assets/background-1.png" />
+      <img class="visible" src="assets/background-2.png" />
+      <img class="visible" src="assets/background-3.png" />
     </div>
     <div class="header-content">
       <div>

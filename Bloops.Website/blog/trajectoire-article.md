@@ -1,6 +1,6 @@
 ---
 title: 'Les déplacements du personnage'
-image: https://files.facepunch.com/s/57140e930812.jpg
+image: '/assets/background-2.png'
 date: '2019-12-24'
 tags:
   - personnage

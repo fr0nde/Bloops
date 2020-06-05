@@ -1,6 +1,6 @@
 ---
 title: 'Les murs'
-image: https://files.facepunch.com/s/57140e930812.jpg
+image: '/assets/background-3.png'
 date: '2020-02-03'
 tags:
   - design

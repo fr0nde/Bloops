@@ -1,7 +1,7 @@
 ---
 title: 'Les animations'
-image: https://files.facepunch.com/s/57140e930812.jpg
-date: '2020-04-12'
+image: '/assets/Accueil.png'
+date: '2019-11-22'
 tags:
   - design
   - personnage

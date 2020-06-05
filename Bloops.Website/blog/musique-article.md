@@ -1,7 +1,7 @@
 ---
 title: "L'univers sonore"
-image: https://files.facepunch.com/s/57140e930812.jpg
-date: '2020-05-03'
+image: '/assets/background-1.png'
+date: '2020-05-02'
 tags:
   - dev
   - son
