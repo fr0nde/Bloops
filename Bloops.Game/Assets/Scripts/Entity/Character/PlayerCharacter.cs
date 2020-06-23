@@ -99,6 +99,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish")
         {
+            GameInstanceInfo.launchTimer = false;
             SceneManager.LoadScene("EndLevel");
             yield return null;
         }

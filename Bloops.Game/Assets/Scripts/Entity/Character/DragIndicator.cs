@@ -123,7 +123,7 @@ public class DragIndicator : MonoBehaviour
             // Quand on relache le doigt de l'écran
             if (Input.GetMouseButtonUp(0))
             {
-                if (totalDistance !== Vector3.zero)
+                if (totalDistance != Vector3.zero)
                 {
                     // Fonction LaunchPlayer dans le script PlayerCharacter
                     PlayerCharacter.LaunchPlayer(totalDistance);

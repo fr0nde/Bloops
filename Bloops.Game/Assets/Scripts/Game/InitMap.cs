@@ -62,6 +62,11 @@ public class InitMap : MonoBehaviour
         InstantiatePortal(map);
     }
 
+    void Update()
+    {
+        if (GameInstanceInfo.launchTimer == true) GameInstanceInfo.timer += Time.deltaTime;
+    }
+
     private void InstantiateCharacter(Map pMap)
     {
         int xPos = pMap.character.pos_x;

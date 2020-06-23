@@ -8,15 +8,15 @@ using UnityEngine;
 public static class GameInstanceInfo
 {
     public static float timer { get; set; }
-    public static bool launchTimer { get; set; } = false;
+    public static bool launchTimer { get; set; } = true;
     public static int nbTry { get; set; }
     public static int nbBounce { get; set; }
     public static Vector2 positionDepart { get; set; }
 
     public static void init()
     {
-        timer = 0;
         launchTimer = true;
+        timer = 0;
         nbTry = 1;
         nbBounce = 0;
         positionDepart = Vector2.zero;

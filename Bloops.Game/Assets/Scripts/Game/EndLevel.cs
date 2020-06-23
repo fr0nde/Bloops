@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class EndLevel : MonoBehaviour
 {
     public Text txtLevel;
-    public Text txtTime;
-    public Text txtNbBounce;
-    public Text txtNbTry;
+    public Text nbTime;
+    public Text nbNbBounce;
+    public Text nbNbTry;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,11 @@ public class EndLevel : MonoBehaviour
         pushValidateLevel();
 
         txtLevel.text = $"Niveau : {GameSceneInfo.level}";
-        txtTime.text = $"Durée du niveau {GameInstanceInfo.timer}";
-        txtNbBounce.text = $"Nombre de rebond {GameInstanceInfo.nbBounce}";
-        txtNbTry.text = $"Nombre de tentatives {GameInstanceInfo.nbTry}";
+        nbTime.text = $"{Mathf.Round(GameInstanceInfo.timer).ToString()} secondes";
+        nbNbBounce.text = $"{GameInstanceInfo.nbBounce}";
+        nbNbTry.text = $"{GameInstanceInfo.nbTry}";
+
+
     }
     void pushValidateLevel()
     {

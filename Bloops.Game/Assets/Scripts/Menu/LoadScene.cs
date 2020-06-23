@@ -21,10 +21,19 @@ public class LoadScene : MonoBehaviour
         Invoke("loadScene", timer);
     }
 
+
     void setInfoText()
     {
         // Ce n'est pas obligatoire
-        infoText.text = LoadSceneInfo.infoText;
+        List<string> randomString = new List<string>();
+        randomString.Add("Les Cuboss sont les ennemis jurés des Bloops. Si vous en rencontrez un, fuyez !");
+        randomString.Add("Le saviez-vous, Bloops peut-être lancé avec plus ou moins de force.");
+        randomString.Add("Chargement du monde...");
+        randomString.Add("Éviter les piques pourraient vous sauver la vie !");
+
+        int nb = Random.Range(0, 4);
+
+        infoText.text = randomString[nb];
     }
 
     void loadScene()

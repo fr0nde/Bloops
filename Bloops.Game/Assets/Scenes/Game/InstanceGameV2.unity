@@ -1046,6 +1046,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
+        type: 3}
+      propertyPath: levelName
+      value: niveau_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 1933353250}
+    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
+        type: 3}
+      propertyPath: prefab_trap
+      value: 
+      objectReference: {fileID: 3543225830787732820, guid: 2620d9589808aeb40bc922186114f940,
+        type: 3}
     - target: {fileID: 8436310839887978466, guid: c28e7fe40d41db444bdc0421449aebcb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1101,21 +1117,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
-        type: 3}
-      propertyPath: levelName
-      value: niveau_7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
-        type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 1933353250}
-    - target: {fileID: 8436310839887978465, guid: c28e7fe40d41db444bdc0421449aebcb,
-        type: 3}
-      propertyPath: prefab_trap
-      value: 
-      objectReference: {fileID: 3543225830787732820, guid: 2620d9589808aeb40bc922186114f940,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c28e7fe40d41db444bdc0421449aebcb, type: 3}
